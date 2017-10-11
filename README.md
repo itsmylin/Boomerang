@@ -6,7 +6,7 @@ Daniel Means
 ![Alt text](/Daniel.jpg?raw=true)
 
 Ming-Yu Lin
-
+![Alt text](/Mingyu.jpg?raw=true)
 Lei Xu
 
 Ali Abbasinasab
