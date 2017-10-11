@@ -3,7 +3,7 @@ Boomerang
 A real-time social networking app based on Interests.
 
 Daniel Means
-![alt text](https://raw.githubusercontent.com/danielmeans/scalableinternetservices/Boomerang/Daniel.jpg)
+![Alt text](/Daniel.jpg?raw=true)
 
 Ming-Yu Lin
 
