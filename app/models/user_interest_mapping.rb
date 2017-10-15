@@ -1,0 +1,2 @@
+class UserInterestMapping < ApplicationRecord
+end
