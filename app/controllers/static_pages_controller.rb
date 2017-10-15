@@ -3,5 +3,6 @@ class StaticPagesController < ApplicationController
   end
 
   def interest
+  	@interestList=Interest.all
   end
 end
