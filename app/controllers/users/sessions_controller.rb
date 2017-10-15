@@ -9,11 +9,7 @@ class Users::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    if !User.exists?(email: params[:user][:email])
-      # post data to Registrations
-    else
-     super
-    end
+    super
   end
 
   # DELETE /resource/sign_out

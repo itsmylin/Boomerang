@@ -10,6 +10,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
+    #after sign-up page will redirect to index
   end
 
   # GET /resource/edit

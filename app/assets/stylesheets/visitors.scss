@@ -11,7 +11,7 @@
   max-width: 100%;
 }
 
-.btn-main {
+.btn-main, .btn-main:hover{
   background-color: #333;
   color: #fff;
   font-weight: 600;
@@ -22,7 +22,18 @@
   text-transform: uppercase; 
 }
 
-
+.btn-secondary, .btn-secondary:hover{
+  text-align: center;
+  line-height: 3;
+  background-color:	#0f3052;
+  color: #fff;
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 1.3px;
+  padding: 12px 40px;
+  text-decoration: none !important;
+  border-radius: 10px;
+}
 .jumbotron h1{
   margin-top: 70px;
   font-size: 6vw;
@@ -33,5 +44,11 @@
   color: 	#3d3d3d;
   margin-top: 0;
   font-size: 3vw;
+  letter-spacing: 1px;
+}
+
+fieldset h3{
+  color: 	#3d3d3d;
+  margin-top: 0;
   letter-spacing: 1px;
 }
