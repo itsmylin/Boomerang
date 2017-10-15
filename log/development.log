@@ -743,3 +743,440 @@ ORDER BY c.conname
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
   [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "food"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", 2017-10-14 18:02:37 UTC], ["updated_at", 2017-10-14 18:02:37 UTC]]
   [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2017-10-14 18:21:11 -0700
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-10-14 18:21:11 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (12.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (13.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::SessionsController#new as HTML
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  [1m[35m (25.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  Rendered visitors/index.html.erb within layouts/application (52.6ms)
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (1716.2ms)
+  Rendered layouts/_navigation_links.html.erb (0.8ms)
+  Rendered layouts/_navigation_links.html.erb (0.1ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (1.1ms)
+  Rendered layouts/_navigation.html.erb (16.4ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (16.5ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 8024ms (Views: 7966.3ms | ActiveRecord: 25.2ms)
+
+
+Completed 200 OK in 8033ms (Views: 7861.0ms | ActiveRecord: 109.5ms)
+
+
+Started GET "/static_pages/listing" for 127.0.0.1 at 2017-10-14 18:21:22 -0700
+Processing by StaticPagesController#listing as HTML
+  Rendering static_pages/listing.html.erb within layouts/application
+  Rendered static_pages/listing.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (1.1ms)
+  Rendered layouts/_navigation.html.erb (7.6ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+Completed 200 OK in 91ms (Views: 86.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/static_pages/interest" for 127.0.0.1 at 2017-10-14 18:21:25 -0700
+Processing by StaticPagesController#interest as HTML
+  Rendering static_pages/interest.html.erb within layouts/application
+  Rendered static_pages/interest.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navigation_links.html.erb (1.0ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (1.3ms)
+  Rendered layouts/_navigation.html.erb (10.3ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 89ms (Views: 83.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/static_pages/listing" for 127.0.0.1 at 2017-10-14 18:21:39 -0700
+Processing by StaticPagesController#listing as HTML
+  Rendering static_pages/listing.html.erb within layouts/application
+  Rendered static_pages/listing.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_navigation_links.html.erb (0.7ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (2.0ms)
+  Rendered layouts/_navigation.html.erb (14.6ms)
+  Rendered layouts/_messages.html.erb (1.1ms)
+Completed 200 OK in 183ms (Views: 177.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/static_pages/listing" for 127.0.0.1 at 2017-10-14 18:21:44 -0700
+Processing by StaticPagesController#listing as HTML
+  Rendering static_pages/listing.html.erb within layouts/application
+  Rendered static_pages/listing.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (1.5ms)
+  Rendered layouts/_navigation.html.erb (8.0ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 97ms (Views: 94.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/static_pages/interest" for 127.0.0.1 at 2017-10-14 18:21:45 -0700
+Processing by StaticPagesController#interest as HTML
+  Rendering static_pages/interest.html.erb within layouts/application
+  Rendered static_pages/interest.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.8ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (1.2ms)
+  Rendered layouts/_navigation.html.erb (8.0ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 110ms (Views: 104.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/static_pages/interest" for 127.0.0.1 at 2017-10-14 18:21:47 -0700
+Processing by StaticPagesController#interest as HTML
+  Rendering static_pages/interest.html.erb within layouts/application
+  Rendered static_pages/interest.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navigation_links.html.erb (0.9ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (1.1ms)
+  Rendered layouts/_navigation.html.erb (11.8ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 80ms (Views: 76.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/static_pages/listing" for 127.0.0.1 at 2017-10-14 18:21:48 -0700
+Processing by StaticPagesController#listing as HTML
+  Rendering static_pages/listing.html.erb within layouts/application
+  Rendered static_pages/listing.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (1.1ms)
+  Rendered layouts/_navigation.html.erb (8.6ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 96ms (Views: 93.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/static_pages/interest" for 127.0.0.1 at 2017-10-14 18:21:49 -0700
+Processing by StaticPagesController#interest as HTML
+  Rendering static_pages/interest.html.erb within layouts/application
+  Rendered static_pages/interest.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_navigation_links.html.erb (0.8ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (1.0ms)
+  Rendered layouts/_navigation.html.erb (10.0ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 96ms (Views: 92.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-14 19:46:12 -0700
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-10-14 19:46:12 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (1.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::SessionsController#new as HTML
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendering devise/sessions/new.html.erb within layouts/application
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  Rendered visitors/index.html.erb within layouts/application (30.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (997.7ms)
+  Rendered layouts/_navigation_links.html.erb (0.6ms)
+  Rendered layouts/_navigation_links.html.erb (0.2ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (1.9ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (0.7ms)
+  Rendered layouts/_navigation.html.erb (25.3ms)
+  Rendered layouts/_navigation.html.erb (17.5ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 1533ms (Views: 1527.1ms | ActiveRecord: 2.7ms)
+
+
+Completed 200 OK in 1553ms (Views: 1489.7ms | ActiveRecord: 16.2ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-10-14 19:46:19 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.6ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (1.2ms)
+  Rendered layouts/_navigation.html.erb (7.1ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 88ms (Views: 86.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-10-14 19:46:20 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_navigation_links.html.erb (0.8ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (1.3ms)
+  Rendered layouts/_navigation.html.erb (14.4ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 111ms (Views: 110.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-10-14 19:46:21 -0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (6.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.9ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (1.5ms)
+  Rendered layouts/_navigation.html.erb (8.6ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+Completed 200 OK in 114ms (Views: 113.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/static_pages/listing" for 127.0.0.1 at 2017-10-14 19:50:14 -0700
+Processing by StaticPagesController#listing as HTML
+  Rendering static_pages/listing.html.erb within layouts/application
+  Rendered static_pages/listing.html.erb within layouts/application (5.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.8ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (2.0ms)
+  Rendered layouts/_navigation.html.erb (13.6ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+Completed 200 OK in 364ms (Views: 344.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/static_pages/interest" for 127.0.0.1 at 2017-10-14 19:50:16 -0700
+Processing by StaticPagesController#interest as HTML
+  Rendering static_pages/interest.html.erb within layouts/application
+  Rendered static_pages/interest.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (1.5ms)
+  Rendered layouts/_navigation.html.erb (7.1ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 93ms (Views: 82.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/static_pages/interest" for 127.0.0.1 at 2017-10-14 20:02:38 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#interest as HTML
+  Rendering static_pages/interest.html.erb within layouts/application
+  Rendered static_pages/interest.html.erb within layouts/application (3.7ms)
+Completed 500 Internal Server Error in 67ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected keyword_ensure, expecting keyword_end
+          ensure
+                ^:
+  app/views/static_pages/interest.html.erb:35:in `'
+
+Started POST "/__better_errors/35d45b74c77f6efb/variables" for 127.0.0.1 at 2017-10-14 20:02:39 -0700
+  [1m[36mInterest Load (0.5ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+Started GET "/static_pages/interest" for 127.0.0.1 at 2017-10-14 20:04:05 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#interest as HTML
+  Rendering static_pages/interest.html.erb within layouts/application
+  [1m[36mInterest Load (0.8ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  Rendered static_pages/interest.html.erb within layouts/application (24.8ms)
+  Rendered layouts/_navigation_links.html.erb (0.7ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (5.6ms)
+  Rendered layouts/_navigation.html.erb (17.1ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 876ms (Views: 826.8ms | ActiveRecord: 8.6ms)
+
+
+Started GET "/static_pages/interest" for 127.0.0.1 at 2017-10-14 20:06:51 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#interest as HTML
+  Rendering static_pages/interest.html.erb within layouts/application
+  [1m[36mInterest Load (0.6ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  Rendered static_pages/interest.html.erb within layouts/application (14.2ms)
+  Rendered layouts/_navigation_links.html.erb (0.8ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (10.7ms)
+  Rendered layouts/_navigation.html.erb (35.9ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 823ms (Views: 786.8ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/static_pages/interest" for 127.0.0.1 at 2017-10-14 20:09:40 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#interest as HTML
+  Rendering static_pages/interest.html.erb within layouts/application
+  Rendered static_pages/interest.html.erb within layouts/application (12.9ms)
+Completed 500 Internal Server Error in 67ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `each' for nil:NilClass:
+  app/views/static_pages/interest.html.erb:9:in `_app_views_static_pages_interest_html_erb___3495438485321630013_70161197915140'
+
+Started POST "/__better_errors/e925ab034c35818d/variables" for 127.0.0.1 at 2017-10-14 20:09:40 -0700
+  [1m[36mInterest Load (0.5ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+Started GET "/static_pages/interest" for 127.0.0.1 at 2017-10-14 20:10:34 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#interest as HTML
+  Rendering static_pages/interest.html.erb within layouts/application
+  [1m[36mInterest Load (0.8ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  Rendered static_pages/interest.html.erb within layouts/application (19.9ms)
+  Rendered layouts/_navigation_links.html.erb (0.6ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (6.1ms)
+  Rendered layouts/_navigation.html.erb (17.1ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 845ms (Views: 807.1ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/static_pages/interest" for 127.0.0.1 at 2017-10-14 20:11:51 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#interest as HTML
+  Rendering static_pages/interest.html.erb within layouts/application
+  [1m[36mInterest Load (0.5ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  Rendered static_pages/interest.html.erb within layouts/application (20.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.8ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (10.0ms)
+  Rendered layouts/_navigation.html.erb (23.9ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 906ms (Views: 860.4ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/static_pages/interest" for 127.0.0.1 at 2017-10-14 20:22:09 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#interest as HTML
+  Rendering static_pages/interest.html.erb within layouts/application
+  [1m[36mInterest Load (0.7ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  Rendered static_pages/interest.html.erb within layouts/application (17.0ms)
+  Rendered layouts/_navigation_links.html.erb (5.3ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (6.4ms)
+  Rendered layouts/_navigation.html.erb (28.7ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 889ms (Views: 840.0ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/static_pages/interest" for 127.0.0.1 at 2017-10-14 20:26:28 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#interest as HTML
+  Rendering static_pages/interest.html.erb within layouts/application
+  Rendered static_pages/interest.html.erb within layouts/application (4.7ms)
+Completed 500 Internal Server Error in 65ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected keyword_ensure, expecting keyword_end
+          ensure
+                ^:
+  app/views/static_pages/interest.html.erb:42:in `'
+
+Started POST "/__better_errors/743dd826184ceebc/variables" for 127.0.0.1 at 2017-10-14 20:26:28 -0700
+  [1m[36mInterest Load (1.1ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+Started GET "/static_pages/interest" for 127.0.0.1 at 2017-10-14 20:27:33 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#interest as HTML
+  Rendering static_pages/interest.html.erb within layouts/application
+  Rendered static_pages/interest.html.erb within layouts/application (1.6ms)
+Completed 500 Internal Server Error in 70ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected keyword_ensure, expecting keyword_end
+          ensure
+                ^:
+  app/views/static_pages/interest.html.erb:42:in `'
+
+Started POST "/__better_errors/26986e718875f8c3/variables" for 127.0.0.1 at 2017-10-14 20:27:33 -0700
+  [1m[36mInterest Load (0.6ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+Started GET "/static_pages/interest" for 127.0.0.1 at 2017-10-14 20:28:38 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#interest as HTML
+  Rendering static_pages/interest.html.erb within layouts/application
+  Rendered static_pages/interest.html.erb within layouts/application (1.0ms)
+Completed 500 Internal Server Error in 60ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected keyword_ensure, expecting keyword_end
+          ensure
+                ^:
+  app/views/static_pages/interest.html.erb:42:in `'
+
+Started POST "/__better_errors/0cd29f14b8041c7a/variables" for 127.0.0.1 at 2017-10-14 20:28:38 -0700
+  [1m[36mInterest Load (0.4ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+Started GET "/static_pages/interest" for 127.0.0.1 at 2017-10-14 20:30:23 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#interest as HTML
+  Rendering static_pages/interest.html.erb within layouts/application
+  [1m[36mInterest Load (0.5ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  Rendered static_pages/interest.html.erb within layouts/application (355.3ms)
+Completed 500 Internal Server Error in 420ms (ActiveRecord: 5.7ms)
+
+
+
+NameError - undefined local variable or method `interest' for #<#<Class:0x007fafbece86f8>:0x007fafbc54fbc8>
+Did you mean?  @interestList:
+  app/views/static_pages/interest.html.erb:13:in `_app_views_static_pages_interest_html_erb___1808537929283723891_70196398606980'
+
+Started POST "/__better_errors/9adf10a9e3cc4fbc/variables" for 127.0.0.1 at 2017-10-14 20:30:24 -0700
+Started GET "/static_pages/interest" for 127.0.0.1 at 2017-10-14 20:30:58 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#interest as HTML
+  Rendering static_pages/interest.html.erb within layouts/application
+  [1m[36mInterest Load (0.7ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  Rendered static_pages/interest.html.erb within layouts/application (366.2ms)
+Completed 500 Internal Server Error in 426ms (ActiveRecord: 5.2ms)
+
+
+
+NameError - undefined local variable or method `interest' for #<#<Class:0x007fcb9b5e6898>:0x007fcb9eb82678>
+Did you mean?  @interestList:
+  app/views/static_pages/interest.html.erb:13:in `_app_views_static_pages_interest_html_erb__1147563194513801151_70256230874940'
+
+Started POST "/__better_errors/6edb978516ec7939/variables" for 127.0.0.1 at 2017-10-14 20:30:59 -0700
+Started GET "/static_pages/interest" for 127.0.0.1 at 2017-10-14 20:32:04 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#interest as HTML
+  Rendering static_pages/interest.html.erb within layouts/application
+  [1m[36mInterest Load (0.6ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  Rendered static_pages/interest.html.erb within layouts/application (14.6ms)
+  Rendered layouts/_navigation_links.html.erb (1.1ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (9.7ms)
+  Rendered layouts/_navigation.html.erb (25.2ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 1061ms (Views: 1022.2ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/static_pages/interest" for 127.0.0.1 at 2017-10-14 20:33:57 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#interest as HTML
+  Rendering static_pages/interest.html.erb within layouts/application
+  [1m[36mInterest Load (0.8ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  Rendered static_pages/interest.html.erb within layouts/application (436.1ms)
+Completed 500 Internal Server Error in 493ms (ActiveRecord: 7.0ms)
+
+
+
+NameError - undefined local variable or method `interest' for #<#<Class:0x007fc8f331a8f8>:0x007fc8f33121f8>
+Did you mean?  @interestList:
+  app/views/static_pages/interest.html.erb:22:in `_app_views_static_pages_interest_html_erb__2881550522177245133_70250525154200'
+
+Started POST "/__better_errors/9f48353ea0d413d1/variables" for 127.0.0.1 at 2017-10-14 20:33:58 -0700
+Started GET "/static_pages/interest" for 127.0.0.1 at 2017-10-14 20:35:21 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#interest as HTML
+  Rendering static_pages/interest.html.erb within layouts/application
+  [1m[36mInterest Load (0.8ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  Rendered static_pages/interest.html.erb within layouts/application (19.1ms)
+  Rendered layouts/_navigation_links.html.erb (0.7ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (6.6ms)
+  Rendered layouts/_navigation.html.erb (17.9ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+Completed 200 OK in 1053ms (Views: 1014.3ms | ActiveRecord: 6.7ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mUser Load (11.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (14.8ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "food"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-15 03:41:19.372867"], ["updated_at", "2017-10-15 03:41:19.372867"]]
+  [1m[35m (3.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "surfing"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-15 03:41:19.395576"], ["updated_at", "2017-10-15 03:41:19.395576"]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (3.2ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "shopping"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-15 03:41:19.401254"], ["updated_at", "2017-10-15 03:41:19.401254"]]
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (5.7ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "soccer"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-15 03:41:19.409761"], ["updated_at", "2017-10-15 03:41:19.409761"]]
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "salon"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-15 03:41:19.421186"], ["updated_at", "2017-10-15 03:41:19.421186"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/static_pages/interest" for 127.0.0.1 at 2017-10-14 20:42:22 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#interest as HTML
+  Rendering static_pages/interest.html.erb within layouts/application
+  [1m[36mInterest Load (0.7ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  Rendered static_pages/interest.html.erb within layouts/application (16.7ms)
+  Rendered layouts/_navigation_links.html.erb (0.7ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (6.1ms)
+  Rendered layouts/_navigation.html.erb (17.5ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 986ms (Views: 941.3ms | ActiveRecord: 4.7ms)
+
+

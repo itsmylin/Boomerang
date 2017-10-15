@@ -9,3 +9,7 @@ user = CreateAdminService.new.call
 puts 'CREATED ADMIN USER: ' << user.email
 
 Interest.create(name:'food',timeSlot: '1-5',location: 'Isla Vista',description: 'blehh')
+Interest.create(name:'surfing',timeSlot: '1-5',location: 'Isla Vista',description: 'blehh')
+Interest.create(name:'shopping',timeSlot: '1-5',location: 'Isla Vista',description: 'blehh')
+Interest.create(name:'soccer',timeSlot: '1-5',location: 'Isla Vista',description: 'blehh')
+Interest.create(name:'salon',timeSlot: '1-5',location: 'Isla Vista',description: 'blehh')
