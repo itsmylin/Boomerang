@@ -5,5 +5,6 @@ class VisitorsController < ApplicationController
     end
   end
   def mood
+  	@interestList=Interest.all
   end
 end

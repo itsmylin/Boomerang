@@ -6,25 +6,28 @@
     </tr>
   </thead>
   <tbody>
-      <tr>
-        <button type="button" class="btn btn-primary">Surfing</button>
-        <button type="button" class="btn btn-primary">Running</button>
-        <button type="button" class="btn btn-primary">Hiking</button>
-        <button type="button" class="btn btn-primary">Climbing</button>
-      </tr>
-
-      <tr>
-        <button type="button" class="btn btn-primary">Dining</button>
-        <button type="button" class="btn btn-primary">Beach</button>
-        <button type="button" class="btn btn-primary">Cycling</button>
-        <button type="button" class="btn btn-primary">Tennis</button>
-
-      <tr>
-        <button type="button" class="btn btn-primary">Soccer</button>
-        <button type="button" class="btn btn-primary">Bars</button>
-        <button type="button" class="btn btn-primary">Live Music</button>
-        <button type="button" class="btn btn-primary">Art</button>
-      </tr>
+      <h1>Interests</h1>
+<table>
+  <thead>
+    <tr>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <div class="container">
+    <br><p>Click atleast 5 interests</p>
+      <div class="btn-group col-xs-12" data-toggle="buttons">
+      <% @interestList.each do |interest| %> 
+        <label class="btn btn-default">
+            <input type="checkbox" name=<%= interest.name %> id=<%= interest.id %> value="apple"><%= interest.name %>
+        </label>
+        <% end %>
+      </div>
+    </div>
+    
+      
+  </tbody>
+</table>
 
   </tbody>
 </table>
