@@ -3,6 +3,6 @@ ruby :
    - "2.4.1"
 script: gulp travis
 before_script:
-  - psql -c 'create database db/development_pg;' postgres
-  - psql -c 'create database db/test_pg;' postgres
-  - psql -c 'create database sb/production_pg;' postgres 
+  - psql -c 'create database development_pg;' postgres
+  - psql -c 'create database test_pg;' postgres
+  - psql -c 'create database production_pg;' postgres 

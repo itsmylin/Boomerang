@@ -11,15 +11,15 @@ default: &default
 
 development:
   <<: *default
-  database: db/development_pg #.sqlite3
+  database: development_pg #.sqlite3
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db/test_pg #.sqlite3
+  database: test_pg #.sqlite3
 
 production:
   <<: *default
-  database: db/production_pg #sqlite3
+  database: production_pg #sqlite3
