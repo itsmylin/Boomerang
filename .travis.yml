@@ -1,0 +1,5 @@
+language: ruby
+ruby :
+   - "stable"
+script: gulp travis
+
