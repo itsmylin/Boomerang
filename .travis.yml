@@ -2,4 +2,7 @@ language: ruby
 ruby :
    - "stable"
 script: gulp travis
-
+before_script:
+  - psql -c 'create database db/development_pg;' postgres
+  - psql -c 'create database db/test_pg;' postgres
+  - psql -c 'create database sb/production_pg;' postgres 
