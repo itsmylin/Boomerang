@@ -17,7 +17,6 @@ class MatchController < ApplicationController
       if user_signed_in?
         unless  map.userID.to_i == current_user.id
          @users <<  User.find(map.userID)
-         puts 'sssssssssssssss'
         end
       else
         @users <<  User.find(map.userID)
