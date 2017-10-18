@@ -1,10 +1,5 @@
 class MatchController < ApplicationController
   def index
-    puts current_user.id
-    session.each do |k,v|
-      puts k
-      puts v
-    end
     puts UserInterestMapping.find(16)
     
     if session[:interest_id] != nil
@@ -19,13 +14,17 @@ class MatchController < ApplicationController
     #   @maps <<  { id: User.find(map.userID) , interest: Interest.find(map.interestID) }
     # end 
     @userInterestMappingList.each do |map|
-      puts map.userID
-      puts current_user.id
-      unless  map.userID.to_i == current_user.id
+      if user_signed_in?
+        unless  map.userID.to_i == current_user.id
+         @users <<  User.find(map.userID)
+         puts 'sssssssssssssss'
+        end
+      else
         @users <<  User.find(map.userID)
-        puts 'sssssssssssssss'
       end
-    end 
+    end
+
+  
     puts @users
     #puts @userInterestMappingList[0][:id]
     #puts @userInterestMappingList1[0][:userID]
