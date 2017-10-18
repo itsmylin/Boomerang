@@ -1,5 +1,5 @@
 class VisitorsController < ApplicationController
-  def index
+  def indexx
     if user_signed_in?
         redirect_to mood_path
     end
