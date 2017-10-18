@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    puts @users[1][:name]
   end
 
   def show
