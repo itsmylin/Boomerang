@@ -19,11 +19,7 @@
 
       </div>
     <% @interestList.each do |interest| %>
-      <%# <div class="checkbox" style="width:150px"> %>
-      <%#    <label class="btn btn-default"> %>
-      <%#      <%# <%= f.check_box name: interest.name <%= interest.name  %>
-      <%#    </label>%>
-      <%#  </div> %>
+
 
       <%= button_to interest.name, {:controller => "mood", :action => "create", :interest_id => interest.id} , :method=>:post %>
 
