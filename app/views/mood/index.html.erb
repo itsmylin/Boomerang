@@ -1,53 +1,24 @@
 <h3>What mood are you in?</h3>
-<table>
-  <thead>
-    <tr>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
-  <tbody>
-      <h1>Interests</h1>
-<table>
-  <thead>
-    <tr>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <div class="container">
-    <%# <%= form_for('mood', :as => 'mood', :url => 'mood', :html => { :role => 'form'}) do |f| %> %>
+<div class="container">
+    <% @interestChunks.each do |chunk| %>
+      <div class="row">
+        <div class="col" %>
+          <%= button_to chunk[0].name, {:controller => "mood", :action => "create", :interest_id => chunk[0].id} , :method=>:post %>
+        </div>
+        <div class="col" %>
+          <%= button_to chunk[1].name, {:controller => "mood", :action => "create", :interest_id => chunk[1].id} , :method=>:post %>
+        </div>
+        <div class="col" %>
+          <%= button_to chunk[2].name, {:controller => "mood", :action => "create", :interest_id => chunk[2].id} , :method=>:post %>
+        </div>
+
 
       </div>
-    <% @interestList.each do |interest| %>
-      <div class="checkbox" style="width:150px">
-          <label class="btn btn-default">
-            <%# <%= f.check_box name: interest.name <%= interest.name  %>
-          </label>
-        </div>
-        <%= button_to interest.name, mood_index_path %>
-        <%= button_to mood_index_path do %>
-        <input name="interest" type="hidden" value= <% interest.name %>/>
-  Make happy <strong><%= interest.name %></strong>
-    <% end %>
-      <%= button_to interest.name, {:controller => "mood", :action => "create", :interest_id => interest.id} , :method=>:post %>
-
-    <% end %>
-           <%# <%= f.submit 'Sign in', :class => 'button right' %> 
-     <%# <% end %> 
-
-    </div>
-
-
-  </tbody>
-</table>
-
-  </tbody>
-</table>
+    <% end -%>  
+</div>
 
 
 
 
-
-
-
-<p> OLD: <%= link_to 'Users:', users_path %> <%= User.count %> registered</p>
+<br><br>
+<p> <%= link_to 'Current Users:', users_path %> <%= User.count %></p>

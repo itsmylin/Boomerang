@@ -13,3 +13,7 @@ Interest.create(name:'surfing',timeSlot: '1-5',location: 'Isla Vista',descriptio
 Interest.create(name:'shopping',timeSlot: '1-5',location: 'Isla Vista',description: 'blehh')
 Interest.create(name:'soccer',timeSlot: '1-5',location: 'Isla Vista',description: 'blehh')
 Interest.create(name:'salon',timeSlot: '1-5',location: 'Isla Vista',description: 'blehh')
+Interest.create(name:'climbing',timeSlot: '1-5',location: 'Isla Vista',description: 'blehh')
+Interest.create(name:'drinks',timeSlot: '1-5',location: 'Isla Vista',description: 'blehh')
+Interest.create(name:'hiking',timeSlot: '1-5',location: 'Isla Vista',description: 'blehh')
+Interest.create(name:'movies',timeSlot: '1-5',location: 'Isla Vista',description: 'blehh')
