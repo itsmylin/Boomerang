@@ -1,0 +1,24 @@
+<h3>What mood are you in?</h3>
+<div class="container">
+    <% @interestChunks.each do |chunk| %>
+      <div class="row">
+        <div class="col" %>
+          <%= button_to chunk[0].name, {:controller => "mood", :action => "create", :interest_id => chunk[0].id} , :method=>:post %>
+        </div>
+        <div class="col" %>
+          <%= button_to chunk[1].name, {:controller => "mood", :action => "create", :interest_id => chunk[1].id} , :method=>:post %>
+        </div>
+        <div class="col" %>
+          <%= button_to chunk[2].name, {:controller => "mood", :action => "create", :interest_id => chunk[2].id} , :method=>:post %>
+        </div>
+
+
+      </div>
+    <% end -%>  
+</div>
+
+
+
+
+<br><br>
+<p> <%= link_to 'Current Users:', users_path %> <%= User.count %></p>

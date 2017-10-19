@@ -8,6 +8,7 @@ class Users::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
+    puts params
     if !User.exists?(email: params[:user][:email])
       sign_up_params = sign_in_params.clone
       sign_up_params.store(:name, params[:user][:email].split('@')[0])

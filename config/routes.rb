@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
    # get 'matches/listing'
 
-  root to: 'visitors#mood'
-  get 'mood', to: 'visitors#mood'
+  root to: 'mood#index'
   devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions', passwords: 'users/passwords' }
+
   resources :users
   get 'inbox', to: 'inbox#index'
+
+  resources :users do
+    get 'notify', :on => :collection
+  end
+  resources :mood
+  resources :match
+
 end

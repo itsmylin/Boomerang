@@ -3,13 +3,17 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    puts @users[1][:name]
   end
 
   def show
     @user = User.find(params[:id])
-    unless @user == current_user
-      redirect_to :back, :alert => "Access denied."
-    end
+    #unless @user == current_user
+    #  redirect_to :back, :alert => "Access denied."
+    #end
+  end
+
+  def notify
   end
 
 end
