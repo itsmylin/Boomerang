@@ -15,25 +15,21 @@
   </thead>
   <tbody>
     <div class="container">
-    <%# <%= form_for('mood', :as => 'mood', :url => 'mood', :html => { :role => 'form'}) do |f| %> %>
+    <%# <%= form_for('mood', :as => 'mood', :url => 'mood', :html => { :role => 'form'}) do |f| %>
 
       </div>
     <% @interestList.each do |interest| %>
-      <div class="checkbox" style="width:150px">
-          <label class="btn btn-default">
-            <%# <%= f.check_box name: interest.name <%= interest.name  %>
-          </label>
-        </div>
-        <%= button_to interest.name, mood_index_path %>
-        <%= button_to mood_index_path do %>
-        <input name="interest" type="hidden" value= <% interest.name %>/>
-  Make happy <strong><%= interest.name %></strong>
-    <% end %>
+      <%# <div class="checkbox" style="width:150px"> %>
+      <%#    <label class="btn btn-default"> %>
+      <%#      <%# <%= f.check_box name: interest.name <%= interest.name  %>
+      <%#    </label>%>
+      <%#  </div> %>
+
       <%= button_to interest.name, {:controller => "mood", :action => "create", :interest_id => interest.id} , :method=>:post %>
 
     <% end %>
-           <%# <%= f.submit 'Sign in', :class => 'button right' %> 
-     <%# <% end %> 
+           <%# <%= f.submit 'Sign in', :class => 'button right' %>
+     <%# <% end %>
 
     </div>
 
