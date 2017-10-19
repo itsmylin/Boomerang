@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get 'mood', to: 'visitors#mood'
   devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions', passwords: 'users/passwords' }
   resources :users
+  get 'inbox', to: 'inbox#index'
 end

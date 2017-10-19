@@ -14804,3 +14804,512 @@ Processing by VisitorsController#mood as HTML
 Completed 200 OK in 313ms (Views: 292.8ms | ActiveRecord: 5.3ms)
 
 
+  [1m[36mActiveRecord::SchemaMigration Load (12.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35mSQL (3.9ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (47.4ms)[0m  [1m[35mDROP TABLE "interests" CASCADE[0m
+  [1m[35m (36.6ms)[0m  [1m[35mCREATE TABLE "interests" ("id" serial primary key, "name" character varying(32) NOT NULL, "timeSlot" character varying, "location" character varying, "description" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (10.1ms)[0m  [1m[35mDROP TABLE "user_interest_mappings" CASCADE[0m
+  [1m[35m (12.8ms)[0m  [1m[35mCREATE TABLE "user_interest_mappings" ("id" serial primary key, "userID" character varying NOT NULL, "interestID" character varying NOT NULL, "desciption" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (8.1ms)[0m  [1m[35mDROP TABLE "users" CASCADE[0m
+  [1m[35m (9.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "created_at" timestamp, "updated_at" timestamp, "name" character varying)[0m
+  [1m[35m (7.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users" USING btree ("reset_password_token")[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (4.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (41.4ms)[0m  [1m[35mDROP TABLE "interests" CASCADE[0m
+  [1m[35m (31.6ms)[0m  [1m[35mCREATE TABLE "interests" ("id" serial primary key, "name" character varying(32) NOT NULL, "timeSlot" character varying, "location" character varying, "description" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.3ms)[0m  [1m[35mDROP TABLE "user_interest_mappings" CASCADE[0m
+  [1m[35m (12.9ms)[0m  [1m[35mCREATE TABLE "user_interest_mappings" ("id" serial primary key, "userID" character varying NOT NULL, "interestID" character varying NOT NULL, "desciption" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (5.6ms)[0m  [1m[35mDROP TABLE "users" CASCADE[0m
+  [1m[35m (10.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "created_at" timestamp, "updated_at" timestamp, "name" character varying)[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users" USING btree ("reset_password_token")[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (7.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (4.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6912912541936343250);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUserUserMappings (20171019230503)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6912912541936343250)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6912912541936343250);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUserUserMappings (20171019230503)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6912912541936343250)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6912912541936343250);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUserUserMappings (20171019230503)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6912912541936343250)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6912912541936343250);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUserUserMappings (20171019230503)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (18.9ms)[0m  [1m[35mCREATE TABLE "user_user_mappings" ("id" serial primary key, "primeUserID" character varying NOT NULL, "secUserID" character varying NOT NULL, "type" character varying, "status" character varying, "timeslot" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (3.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171019230503"]]
+  [1m[35m (3.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6912912541936343250)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (4.2ms)[0m  [1m[35mDROP TABLE "interests" CASCADE[0m
+  [1m[35m (11.6ms)[0m  [1m[35mCREATE TABLE "interests" ("id" serial primary key, "name" character varying(32) NOT NULL, "timeSlot" character varying, "location" character varying, "description" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.9ms)[0m  [1m[35mDROP TABLE "user_interest_mappings" CASCADE[0m
+  [1m[35m (15.4ms)[0m  [1m[35mCREATE TABLE "user_interest_mappings" ("id" serial primary key, "userID" character varying NOT NULL, "interestID" character varying NOT NULL, "desciption" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.7ms)[0m  [1m[35mDROP TABLE "user_user_mappings" CASCADE[0m
+  [1m[35m (11.1ms)[0m  [1m[35mCREATE TABLE "user_user_mappings" ("id" serial primary key, "primeUserID" character varying NOT NULL, "secUserID" character varying NOT NULL, "type" character varying, "status" character varying, "timeslot" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.7ms)[0m  [1m[35mDROP TABLE "users" CASCADE[0m
+  [1m[35m (14.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "created_at" timestamp, "updated_at" timestamp, "name" character varying)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users" USING btree ("reset_password_token")[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (10.0ms)[0m  [1m[35mDROP TABLE "interests" CASCADE[0m
+  [1m[35m (31.9ms)[0m  [1m[35mCREATE TABLE "interests" ("id" serial primary key, "name" character varying(32) NOT NULL, "timeSlot" character varying, "location" character varying, "description" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (3.9ms)[0m  [1m[35mDROP TABLE "user_interest_mappings" CASCADE[0m
+  [1m[35m (14.5ms)[0m  [1m[35mCREATE TABLE "user_interest_mappings" ("id" serial primary key, "userID" character varying NOT NULL, "interestID" character varying NOT NULL, "desciption" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (12.7ms)[0m  [1m[35mCREATE TABLE "user_user_mappings" ("id" serial primary key, "primeUserID" character varying NOT NULL, "secUserID" character varying NOT NULL, "type" character varying, "status" character varying, "timeslot" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (6.0ms)[0m  [1m[35mDROP TABLE "users" CASCADE[0m
+  [1m[35m (10.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "created_at" timestamp, "updated_at" timestamp, "name" character varying)[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (14.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users" USING btree ("reset_password_token")[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (3.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20171019230503)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[35mSQL (3.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "user@example.com"], ["encrypted_password", "$2a$11$wGnKEFgKd4INeuKLvTvnvOjc0oAexMWhDc9IKqpumsuIO.OwiwcdW"], ["created_at", "2017-10-19 23:19:45.935079"], ["updated_at", "2017-10-19 23:19:45.935079"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "food"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:19:45.966946"], ["updated_at", "2017-10-19 23:19:45.966946"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "surfing"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:19:45.971310"], ["updated_at", "2017-10-19 23:19:45.971310"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "shopping"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:19:45.975678"], ["updated_at", "2017-10-19 23:19:45.975678"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "soccer"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:19:45.980196"], ["updated_at", "2017-10-19 23:19:45.980196"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "salon"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:19:45.984718"], ["updated_at", "2017-10-19 23:19:45.984718"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  [1m[31mDELETE FROM `ar_internal_metadata`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (3.6ms)[0m  [1m[31mDELETE FROM Interest[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (3.5ms)[0m  [1m[31mDELETE FROM Interests[0m
+  [1m[35m (4.7ms)[0m  [1m[35mALTER TABLE Interests AUTO_INCREMENT = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.2ms)[0m  [1m[31mDELETE FROM Interests[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (3.3ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "food"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:39:07.000008"], ["updated_at", "2017-10-19 23:39:07.000008"]]
+  [1m[35m (3.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "surfing"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:39:07.008910"], ["updated_at", "2017-10-19 23:39:07.008910"]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "shopping"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:39:07.014063"], ["updated_at", "2017-10-19 23:39:07.014063"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "soccer"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:39:07.019254"], ["updated_at", "2017-10-19 23:39:07.019254"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "salon"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:39:07.024560"], ["updated_at", "2017-10-19 23:39:07.024560"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (3.5ms)[0m  [1m[31mDELETE FROM Interests[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (3.0ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "food"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:40:48.351171"], ["updated_at", "2017-10-19 23:40:48.351171"]]
+  [1m[35m (3.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "surfing"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:40:48.359763"], ["updated_at", "2017-10-19 23:40:48.359763"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "shopping"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:40:48.364441"], ["updated_at", "2017-10-19 23:40:48.364441"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "soccer"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:40:48.369023"], ["updated_at", "2017-10-19 23:40:48.369023"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "salon"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:40:48.373603"], ["updated_at", "2017-10-19 23:40:48.373603"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (3.2ms)[0m  [1m[31mDELETE FROM Interests[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.9ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "food"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:42:02.024373"], ["updated_at", "2017-10-19 23:42:02.024373"]]
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "surfing"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:42:02.032815"], ["updated_at", "2017-10-19 23:42:02.032815"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "shopping"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:42:02.038065"], ["updated_at", "2017-10-19 23:42:02.038065"]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "soccer"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:42:02.043244"], ["updated_at", "2017-10-19 23:42:02.043244"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "salon"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:42:02.048641"], ["updated_at", "2017-10-19 23:42:02.048641"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6912912541936343250);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6912912541936343250)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (15.0ms)[0m  [1m[35mDROP TABLE "interests" CASCADE[0m
+  [1m[35m (19.8ms)[0m  [1m[35mCREATE TABLE "interests" ("id" serial primary key, "name" character varying(32) NOT NULL, "timeSlot" character varying, "location" character varying, "description" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (4.8ms)[0m  [1m[35mDROP TABLE "user_interest_mappings" CASCADE[0m
+  [1m[35m (13.2ms)[0m  [1m[35mCREATE TABLE "user_interest_mappings" ("id" serial primary key, "userID" character varying NOT NULL, "interestID" character varying NOT NULL, "desciption" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (5.5ms)[0m  [1m[35mDROP TABLE "user_user_mappings" CASCADE[0m
+  [1m[35m (12.8ms)[0m  [1m[35mCREATE TABLE "user_user_mappings" ("id" serial primary key, "primeUserID" character varying NOT NULL, "secUserID" character varying NOT NULL, "type" character varying, "status" character varying, "timeslot" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (5.5ms)[0m  [1m[35mDROP TABLE "users" CASCADE[0m
+  [1m[35m (11.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "created_at" timestamp, "updated_at" timestamp, "name" character varying)[0m
+  [1m[35m (7.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users" USING btree ("reset_password_token")[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (12.0ms)[0m  [1m[35mDROP TABLE "interests" CASCADE[0m
+  [1m[35m (30.4ms)[0m  [1m[35mCREATE TABLE "interests" ("id" serial primary key, "name" character varying(32) NOT NULL, "timeSlot" character varying, "location" character varying, "description" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (5.3ms)[0m  [1m[35mDROP TABLE "user_interest_mappings" CASCADE[0m
+  [1m[35m (12.3ms)[0m  [1m[35mCREATE TABLE "user_interest_mappings" ("id" serial primary key, "userID" character varying NOT NULL, "interestID" character varying NOT NULL, "desciption" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (8.7ms)[0m  [1m[35mDROP TABLE "user_user_mappings" CASCADE[0m
+  [1m[35m (12.3ms)[0m  [1m[35mCREATE TABLE "user_user_mappings" ("id" serial primary key, "primeUserID" character varying NOT NULL, "secUserID" character varying NOT NULL, "type" character varying, "status" character varying, "timeslot" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (3.6ms)[0m  [1m[35mDROP TABLE "users" CASCADE[0m
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "created_at" timestamp, "updated_at" timestamp, "name" character varying)[0m
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users" USING btree ("reset_password_token")[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (1.8ms)[0m  [1m[31mDELETE FROM Interests[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "user@example.com"], ["encrypted_password", "$2a$11$Ek2IsajqqMSFQrDvnAXxcu7iUzZ7ZqF8E7FThBjwxqEe9Zim/Y/wy"], ["created_at", "2017-10-19 23:43:23.552157"], ["updated_at", "2017-10-19 23:43:23.552157"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "food"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:43:23.575848"], ["updated_at", "2017-10-19 23:43:23.575848"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "surfing"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:43:23.580537"], ["updated_at", "2017-10-19 23:43:23.580537"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "shopping"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:43:23.584835"], ["updated_at", "2017-10-19 23:43:23.584835"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "soccer"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:43:23.589284"], ["updated_at", "2017-10-19 23:43:23.589284"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "salon"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:43:23.593788"], ["updated_at", "2017-10-19 23:43:23.593788"]]
+  [1m[35m (4.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6912912541936343250);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6912912541936343250)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (15.1ms)[0m  [1m[35mDROP TABLE "interests" CASCADE[0m
+  [1m[35m (20.5ms)[0m  [1m[35mCREATE TABLE "interests" ("id" serial primary key, "name" character varying(32) NOT NULL, "timeSlot" character varying, "location" character varying, "description" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (5.3ms)[0m  [1m[35mDROP TABLE "user_interest_mappings" CASCADE[0m
+  [1m[35m (13.4ms)[0m  [1m[35mCREATE TABLE "user_interest_mappings" ("id" serial primary key, "userID" character varying NOT NULL, "interestID" character varying NOT NULL, "desciption" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (5.2ms)[0m  [1m[35mDROP TABLE "user_user_mappings" CASCADE[0m
+  [1m[35m (12.4ms)[0m  [1m[35mCREATE TABLE "user_user_mappings" ("id" serial primary key, "primeUserID" character varying NOT NULL, "secUserID" character varying NOT NULL, "type" character varying, "status" character varying, "timeslot" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (7.8ms)[0m  [1m[35mDROP TABLE "users" CASCADE[0m
+  [1m[35m (11.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "created_at" timestamp, "updated_at" timestamp, "name" character varying)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users" USING btree ("reset_password_token")[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (10.9ms)[0m  [1m[35mDROP TABLE "interests" CASCADE[0m
+  [1m[35m (13.0ms)[0m  [1m[35mCREATE TABLE "interests" ("id" serial primary key, "name" character varying(32) NOT NULL, "timeSlot" character varying, "location" character varying, "description" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (4.2ms)[0m  [1m[35mDROP TABLE "user_interest_mappings" CASCADE[0m
+  [1m[35m (15.7ms)[0m  [1m[35mCREATE TABLE "user_interest_mappings" ("id" serial primary key, "userID" character varying NOT NULL, "interestID" character varying NOT NULL, "desciption" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (4.6ms)[0m  [1m[35mDROP TABLE "user_user_mappings" CASCADE[0m
+  [1m[35m (13.0ms)[0m  [1m[35mCREATE TABLE "user_user_mappings" ("id" serial primary key, "primeUserID" character varying NOT NULL, "secUserID" character varying NOT NULL, "type" character varying, "status" character varying, "timeslot" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (3.0ms)[0m  [1m[35mDROP TABLE "users" CASCADE[0m
+  [1m[35m (13.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "created_at" timestamp, "updated_at" timestamp, "name" character varying)[0m
+  [1m[35m (7.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users" USING btree ("reset_password_token")[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  [1m[31mDELETE FROM Interests[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "user@example.com"], ["encrypted_password", "$2a$11$eA9L4xG0Hmb1N4cyVlw.IuU5iT/9KVSZNv6pJmyp0AmLK5Y8Zcwgu"], ["created_at", "2017-10-19 23:45:11.899062"], ["updated_at", "2017-10-19 23:45:11.899062"]]
+  [1m[35m (4.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "food"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:45:11.924362"], ["updated_at", "2017-10-19 23:45:11.924362"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "surfing"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:45:11.929209"], ["updated_at", "2017-10-19 23:45:11.929209"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "shopping"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:45:11.933560"], ["updated_at", "2017-10-19 23:45:11.933560"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "soccer"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:45:11.938216"], ["updated_at", "2017-10-19 23:45:11.938216"]]
+  [1m[35m (4.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "salon"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:45:11.945978"], ["updated_at", "2017-10-19 23:45:11.945978"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6912912541936343250);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6912912541936343250)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (4.6ms)[0m  [1m[35mDROP TABLE "interests" CASCADE[0m
+  [1m[35m (14.6ms)[0m  [1m[35mCREATE TABLE "interests" ("id" serial primary key, "name" character varying(32) NOT NULL, "timeSlot" character varying, "location" character varying, "description" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (7.6ms)[0m  [1m[35mDROP TABLE "user_interest_mappings" CASCADE[0m
+  [1m[35m (10.7ms)[0m  [1m[35mCREATE TABLE "user_interest_mappings" ("id" serial primary key, "userID" character varying NOT NULL, "interestID" character varying NOT NULL, "desciption" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (3.2ms)[0m  [1m[35mDROP TABLE "user_user_mappings" CASCADE[0m
+  [1m[35m (9.1ms)[0m  [1m[35mCREATE TABLE "user_user_mappings" ("id" serial primary key, "primeUserID" character varying NOT NULL, "secUserID" character varying NOT NULL, "type" character varying, "status" character varying, "timeslot" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.9ms)[0m  [1m[35mDROP TABLE "users" CASCADE[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "created_at" timestamp, "updated_at" timestamp, "name" character varying)[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users" USING btree ("reset_password_token")[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (3.2ms)[0m  [1m[35mDROP TABLE "interests" CASCADE[0m
+  [1m[35m (8.8ms)[0m  [1m[35mCREATE TABLE "interests" ("id" serial primary key, "name" character varying(32) NOT NULL, "timeSlot" character varying, "location" character varying, "description" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mDROP TABLE "user_interest_mappings" CASCADE[0m
+  [1m[35m (14.7ms)[0m  [1m[35mCREATE TABLE "user_interest_mappings" ("id" serial primary key, "userID" character varying NOT NULL, "interestID" character varying NOT NULL, "desciption" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mDROP TABLE "user_user_mappings" CASCADE[0m
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE TABLE "user_user_mappings" ("id" serial primary key, "primeUserID" character varying NOT NULL, "secUserID" character varying NOT NULL, "type" character varying, "status" character varying, "timeslot" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.9ms)[0m  [1m[35mDROP TABLE "users" CASCADE[0m
+  [1m[35m (15.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "created_at" timestamp, "updated_at" timestamp, "name" character varying)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users" USING btree ("reset_password_token")[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  [1m[31mDELETE FROM Interests[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[35mSQL (7.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "user@example.com"], ["encrypted_password", "$2a$11$m/DU/B5VAi5eIYJjQkeHnOPSETFUWOswce/rj0n./gc8hvZ1cLbSm"], ["created_at", "2017-10-19 23:45:38.473560"], ["updated_at", "2017-10-19 23:45:38.473560"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "food"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:45:38.497762"], ["updated_at", "2017-10-19 23:45:38.497762"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "surfing"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:45:38.502140"], ["updated_at", "2017-10-19 23:45:38.502140"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "shopping"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:45:38.506426"], ["updated_at", "2017-10-19 23:45:38.506426"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "soccer"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:45:38.510710"], ["updated_at", "2017-10-19 23:45:38.510710"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "salon"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:45:38.514834"], ["updated_at", "2017-10-19 23:45:38.514834"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6912912541936343250);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeColumnName (20171019234643)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.1ms)[0m  [1m[35mALTER TABLE "user_user_mappings" RENAME COLUMN "type" TO "typeName"[0m
+  [1m[35mSQL (2.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20171019234643"]]
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6912912541936343250)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (6.6ms)[0m  [1m[35mDROP TABLE "interests" CASCADE[0m
+  [1m[35m (11.7ms)[0m  [1m[35mCREATE TABLE "interests" ("id" serial primary key, "name" character varying(32) NOT NULL, "timeSlot" character varying, "location" character varying, "description" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (4.9ms)[0m  [1m[35mDROP TABLE "user_interest_mappings" CASCADE[0m
+  [1m[35m (12.3ms)[0m  [1m[35mCREATE TABLE "user_interest_mappings" ("id" serial primary key, "userID" character varying NOT NULL, "interestID" character varying NOT NULL, "desciption" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.9ms)[0m  [1m[35mDROP TABLE "user_user_mappings" CASCADE[0m
+  [1m[35m (10.9ms)[0m  [1m[35mCREATE TABLE "user_user_mappings" ("id" serial primary key, "primeUserID" character varying NOT NULL, "secUserID" character varying NOT NULL, "typeName" character varying, "status" character varying, "timeslot" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (6.1ms)[0m  [1m[35mDROP TABLE "users" CASCADE[0m
+  [1m[35m (7.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "created_at" timestamp, "updated_at" timestamp, "name" character varying)[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users" USING btree ("reset_password_token")[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (7.9ms)[0m  [1m[35mDROP TABLE "interests" CASCADE[0m
+  [1m[35m (18.5ms)[0m  [1m[35mCREATE TABLE "interests" ("id" serial primary key, "name" character varying(32) NOT NULL, "timeSlot" character varying, "location" character varying, "description" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (3.0ms)[0m  [1m[35mDROP TABLE "user_interest_mappings" CASCADE[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "user_interest_mappings" ("id" serial primary key, "userID" character varying NOT NULL, "interestID" character varying NOT NULL, "desciption" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (3.1ms)[0m  [1m[35mDROP TABLE "user_user_mappings" CASCADE[0m
+  [1m[35m (7.9ms)[0m  [1m[35mCREATE TABLE "user_user_mappings" ("id" serial primary key, "primeUserID" character varying NOT NULL, "secUserID" character varying NOT NULL, "typeName" character varying, "status" character varying, "timeslot" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.2ms)[0m  [1m[35mDROP TABLE "users" CASCADE[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "created_at" timestamp, "updated_at" timestamp, "name" character varying)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users" USING btree ("reset_password_token")[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (2.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20171019234643)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.9ms)[0m  [1m[31mDELETE FROM Interests[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "user@example.com"], ["encrypted_password", "$2a$11$6B8NQkdZ7vjDO4MWE4X3yOUEA.x/0b5u.NPdpwVE/BH8HGJHrjCty"], ["created_at", "2017-10-19 23:47:49.785303"], ["updated_at", "2017-10-19 23:47:49.785303"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "food"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:47:49.810238"], ["updated_at", "2017-10-19 23:47:49.810238"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "surfing"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:47:49.814612"], ["updated_at", "2017-10-19 23:47:49.814612"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "shopping"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:47:49.818906"], ["updated_at", "2017-10-19 23:47:49.818906"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "soccer"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:47:49.823238"], ["updated_at", "2017-10-19 23:47:49.823238"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "salon"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:47:49.827437"], ["updated_at", "2017-10-19 23:47:49.827437"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "user_user_mappings" ("primeUserID", "secUserID", "typeName", "status", "timeslot", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["primeUserID", "salon"], ["secUserID", "15"], ["typeName", "nnn"], ["status", "blehh"], ["timeslot", "77"], ["created_at", "2017-10-19 23:47:49.847004"], ["updated_at", "2017-10-19 23:47:49.847004"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (5.6ms)[0m  [1m[31mDELETE FROM Interests[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "food"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:48:02.352180"], ["updated_at", "2017-10-19 23:48:02.352180"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "surfing"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:48:02.356903"], ["updated_at", "2017-10-19 23:48:02.356903"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "shopping"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:48:02.361225"], ["updated_at", "2017-10-19 23:48:02.361225"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "soccer"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:48:02.365663"], ["updated_at", "2017-10-19 23:48:02.365663"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "interests" ("name", "timeSlot", "location", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "salon"], ["timeSlot", "1-5"], ["location", "Isla Vista"], ["description", "blehh"], ["created_at", "2017-10-19 23:48:02.370350"], ["updated_at", "2017-10-19 23:48:02.370350"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "user_user_mappings" ("primeUserID", "secUserID", "typeName", "status", "timeslot", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["primeUserID", "salon"], ["secUserID", "15"], ["typeName", "nnn"], ["status", "blehh"], ["timeslot", "77"], ["created_at", "2017-10-19 23:48:02.393359"], ["updated_at", "2017-10-19 23:48:02.393359"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m

@@ -5,6 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+
+ActiveRecord::Base.connection.execute "DELETE FROM Interests"
+
+
+
 user = CreateAdminService.new.call
 puts 'CREATED ADMIN USER: ' << user.email
 
@@ -13,3 +20,5 @@ Interest.create(name:'surfing',timeSlot: '1-5',location: 'Isla Vista',descriptio
 Interest.create(name:'shopping',timeSlot: '1-5',location: 'Isla Vista',description: 'blehh')
 Interest.create(name:'soccer',timeSlot: '1-5',location: 'Isla Vista',description: 'blehh')
 Interest.create(name:'salon',timeSlot: '1-5',location: 'Isla Vista',description: 'blehh')
+UserUserMapping.create(primeUserID:'salon',secUserID: '15',typeName: 'nnn',status: 'blehh',timeslot: '77')
+
