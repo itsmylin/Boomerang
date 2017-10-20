@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   end
 
   def notify
+    redirect_to :back
   end
 
 end
