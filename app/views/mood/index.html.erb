@@ -1,22 +1,23 @@
 <h3>What mood are you in?</h3>
-<div class="container">
-    <% @interestChunks.each do |chunk| %>
+      <div class="btn-group btn-group-justified", style= "width = 100%">
+        <% @interestChunks.each do |chunk| %>
       <div class="row">
-        <div class="col" %>
-          <%= button_to chunk[0].name, {:controller => "mood", :action => "create", :interest_id => chunk[0].id} , :method=>:post %>
+        <div class="col-sm-4 text-center" >
+          <%= button_to chunk[0].name, {:controller => "mood", :action => "create", :interest_id => chunk[0].id} , :method=>:post , :class=> "btn-lg", :style => "width:100%" %>
+       </div>
+        <div class="col-sm-4 text-center" >
+                 <%= button_to chunk[1].name, {:controller => "mood", :action => "create", :interest_id => chunk[1].id} , :method=>:post , :class=> "btn-lg", :style => "width:100%" %>
         </div>
-        <div class="col" %>
-          <%= button_to chunk[1].name, {:controller => "mood", :action => "create", :interest_id => chunk[1].id} , :method=>:post %>
-        </div>
-        <div class="col" %>
-          <%= button_to chunk[2].name, {:controller => "mood", :action => "create", :interest_id => chunk[2].id} , :method=>:post %>
+        <div class="col-sm-4 text-center" > 
+              <%= button_to chunk[2].name, {:controller => "mood", :action => "create", :interest_id => chunk[2].id} , :method=>:post , :class=> "btn-lg", :style => "width:100%" %>
         </div>
 
 
       </div>
-    <% end -%>  
-</div>
+    <% end -%> 
+   
 
+</div>
 
 
 
