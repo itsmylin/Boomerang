@@ -6,7 +6,21 @@
   <%# <li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %\\\\\\></li> %>
 
 <% else %>
+
   <%# <li><%= link_to 'Sign in', new_user_session_path %\\\\\\\\></li>  %>
   <%# <li><%= link_to 'Sign up', new_user_registration_path %\\\\\\\\></li> %>
 <% end %>
- <li><%= link_to 'Profile', edit_user_registration_path %></li>
+
+
+
+<li> <%= link_to edit_user_registration_path do %>
+  <% if user_signed_in? %>
+    <% if current_user.avatar? %>
+      <%= image_tag current_user.avatar.url(:thumb), class: "round-image-50" %>
+    <% end %>
+  <% else %>
+    <%= image_tag "default_profile_image.png", class: "round-image-50" %>
+  <% end %>
+</li>
+
+<% end %>
