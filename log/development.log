@@ -35007,3 +35007,301 @@ Processing by Users::RegistrationsController#edit as HTML
 Completed 200 OK in 113ms (Views: 110.9ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-10-20 17:46:08 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MoodController#index as HTML
+  [1m[36mInterest Load (0.4ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  Rendering mood/index.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  Rendered mood/index.html.erb within layouts/application (10.7ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered layouts/_nav_links_for_auth.html.erb (14.0ms)
+  Rendered layouts/_navigation.html.erb (17.1ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 312ms (Views: 273.1ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-20 17:46:08 -0700
+Processing by MoodController#index as HTML
+  [1m[36mInterest Load (0.6ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  Rendering mood/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  Rendered mood/index.html.erb within layouts/application (3.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered layouts/_nav_links_for_auth.html.erb (3.2ms)
+  Rendered layouts/_navigation.html.erb (7.5ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 103ms (Views: 98.6ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-20 17:46:09 -0700
+Processing by MoodController#index as HTML
+  [1m[36mInterest Load (0.2ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  Rendering mood/index.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  Rendered mood/index.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered layouts/_nav_links_for_auth.html.erb (2.3ms)
+  Rendered layouts/_navigation.html.erb (6.3ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 61ms (Views: 58.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2017-10-20 17:46:10 -0700
+Processing by Users::RegistrationsController#edit as HTML
+  [1m[36mUser Load (19.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/registrations/edit.html.erb within layouts/application
+  Rendered users/registrations/edit.html.erb within layouts/application (437.8ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (1.1ms)
+  Rendered layouts/_navigation.html.erb (5.9ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 525ms (Views: 501.9ms | ActiveRecord: 19.3ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2017-10-20 17:46:11 -0700
+Processing by Users::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/registrations/edit.html.erb within layouts/application
+  Rendered users/registrations/edit.html.erb within layouts/application (5.2ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (1.0ms)
+  Rendered layouts/_navigation.html.erb (4.0ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 86ms (Views: 84.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2017-10-20 17:47:31 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Users::RegistrationsController#edit as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/registrations/edit.html.erb within layouts/application
+  Rendered users/registrations/edit.html.erb within layouts/application (386.8ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (1.4ms)
+  Rendered layouts/_navigation.html.erb (6.8ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+Completed 200 OK in 721ms (Views: 679.0ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-20 17:47:33 -0700
+Processing by MoodController#index as HTML
+  [1m[36mInterest Load (0.5ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  Rendering mood/index.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  Rendered mood/index.html.erb within layouts/application (4.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered layouts/_nav_links_for_auth.html.erb (2.4ms)
+  Rendered layouts/_navigation.html.erb (4.9ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 139ms (Views: 116.6ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2017-10-20 17:47:36 -0700
+Processing by Users::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/registrations/edit.html.erb within layouts/application
+  Rendered users/registrations/edit.html.erb within layouts/application (6.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (1.4ms)
+  Rendered layouts/_navigation.html.erb (6.0ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 87ms (Views: 84.5ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-10-20 17:47:38 -0700
+Processing by Users::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"1rWeE3Jsz68pl0pU5b3VTPuPg0pqOamSJphetW+f5/AZ+KCmM7PO39FgbJnqthqF4wK40RPW2S2LFGol+8iveg=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-20 17:47:38 -0700
+Processing by MoodController#index as HTML
+  [1m[36mInterest Load (0.2ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  Rendering mood/index.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  Rendered mood/index.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_navigation_links.html.erb (0.6ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (8.3ms)
+  Rendered layouts/_navigation.html.erb (13.1ms)
+Completed 500 Internal Server Error in 59ms (ActiveRecord: 0.5ms)
+
+
+
+NoMethodError - undefined method `avatar' for nil:NilClass:
+  app/views/layouts/_nav_links_for_auth.html.erb:14:in `block in _app_views_layouts__nav_links_for_auth_html_erb___2677257167903916860_70331010000800'
+  app/views/layouts/_nav_links_for_auth.html.erb:13:in `_app_views_layouts__nav_links_for_auth_html_erb___2677257167903916860_70331010000800'
+  app/views/layouts/_navigation.html.erb:16:in `_app_views_layouts__navigation_html_erb__505480827140577578_70331010098280'
+  app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb__947164373375808316_70330948546360'
+
+Started POST "/__better_errors/dad14dd43163ab1a/variables" for 127.0.0.1 at 2017-10-20 17:47:38 -0700
+Started GET "/" for 127.0.0.1 at 2017-10-20 17:49:14 -0700
+Processing by MoodController#index as HTML
+  [1m[36mInterest Load (0.3ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  Rendering mood/index.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  Rendered mood/index.html.erb within layouts/application (2.7ms)
+  Rendered layouts/_navigation_links.html.erb (0.2ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (3.9ms)
+  Rendered layouts/_navigation.html.erb (6.6ms)
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 0.5ms)
+
+
+
+NoMethodError - undefined method `avatar' for nil:NilClass:
+  app/views/layouts/_nav_links_for_auth.html.erb:14:in `block in _app_views_layouts__nav_links_for_auth_html_erb___2677257167903916860_70330948478040'
+  app/views/layouts/_nav_links_for_auth.html.erb:13:in `_app_views_layouts__nav_links_for_auth_html_erb___2677257167903916860_70330948478040'
+  app/views/layouts/_navigation.html.erb:16:in `_app_views_layouts__navigation_html_erb__505480827140577578_70330948579620'
+  app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb__947164373375808316_70331006512180'
+
+Started POST "/__better_errors/9f08167c93efe136/variables" for 127.0.0.1 at 2017-10-20 17:49:15 -0700
+Started GET "/" for 127.0.0.1 at 2017-10-20 17:53:44 -0700
+Processing by MoodController#index as HTML
+  [1m[36mInterest Load (0.2ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  Rendering mood/index.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  Rendered mood/index.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (91.9ms)
+  Rendered layouts/_navigation.html.erb (94.7ms)
+Completed 500 Internal Server Error in 221ms (ActiveRecord: 0.5ms)
+
+
+
+NoMethodError - undefined method `avatar' for nil:NilClass:
+  app/views/layouts/_nav_links_for_auth.html.erb:19:in `block in _app_views_layouts__nav_links_for_auth_html_erb___2677257167903916860_70331011914400'
+  app/views/layouts/_nav_links_for_auth.html.erb:18:in `_app_views_layouts__nav_links_for_auth_html_erb___2677257167903916860_70331011914400'
+  app/views/layouts/_navigation.html.erb:16:in `_app_views_layouts__navigation_html_erb__505480827140577578_70330947567560'
+  app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb__947164373375808316_70330999675740'
+
+Started POST "/__better_errors/bc15d46dc23ca684/variables" for 127.0.0.1 at 2017-10-20 17:53:46 -0700
+Started GET "/" for 127.0.0.1 at 2017-10-20 17:53:47 -0700
+Processing by MoodController#index as HTML
+  [1m[36mInterest Load (0.2ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  Rendering mood/index.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  Rendered mood/index.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_navigation_links.html.erb (0.2ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (5.5ms)
+  Rendered layouts/_navigation.html.erb (8.2ms)
+Completed 500 Internal Server Error in 89ms (ActiveRecord: 0.5ms)
+
+
+
+NoMethodError - undefined method `avatar' for nil:NilClass:
+  app/views/layouts/_nav_links_for_auth.html.erb:19:in `block in _app_views_layouts__nav_links_for_auth_html_erb___2677257167903916860_70330974675820'
+  app/views/layouts/_nav_links_for_auth.html.erb:18:in `_app_views_layouts__nav_links_for_auth_html_erb___2677257167903916860_70330974675820'
+  app/views/layouts/_navigation.html.erb:16:in `_app_views_layouts__navigation_html_erb__505480827140577578_70330974728540'
+  app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb__947164373375808316_70330962144900'
+
+Started POST "/__better_errors/6088185f75043852/variables" for 127.0.0.1 at 2017-10-20 17:53:48 -0700
+Started GET "/" for 127.0.0.1 at 2017-10-20 17:54:11 -0700
+Processing by MoodController#index as HTML
+  [1m[36mInterest Load (0.3ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  Rendering mood/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  Rendered mood/index.html.erb within layouts/application (3.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (1.4ms)
+  Rendered layouts/_navigation.html.erb (4.1ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 59ms (Views: 55.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-20 17:54:15 -0700
+Processing by MoodController#index as HTML
+  [1m[36mInterest Load (0.3ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  Rendering mood/index.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  Rendered mood/index.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.2ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (1.3ms)
+  Rendered layouts/_navigation.html.erb (4.0ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 61ms (Views: 58.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2017-10-20 17:54:21 -0700
+Processing by Users::RegistrationsController#edit as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-10-20 17:54:21 -0700
+Processing by Users::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/sessions/new.html.erb within layouts/application (6.9ms)
+  Rendered layouts/_navigation_links.html.erb (0.2ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (2.1ms)
+  Rendered layouts/_navigation.html.erb (4.9ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 81ms (Views: 80.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-10-20 17:54:24 -0700
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nH/9Yc9tx5LljKFWSO36HSh66gwNo5TF+SoM5aj2Z4kvuX/DNVrQq9OMcT7IYLI26VIDtbkLpfGcg6QLPxrjLA==", "user"=>{"email"=>"zz@zz.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "zz@zz.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "zz@zz.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", "2017-10-21 00:54:24.374886"], ["last_sign_in_at", "2017-10-18 23:57:38.953267"], ["sign_in_count", 27], ["updated_at", "2017-10-21 00:54:24.375936"], ["id", 4]]
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/users/edit
+Completed 302 Found in 189ms (ActiveRecord: 4.4ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2017-10-20 17:54:24 -0700
+Processing by Users::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/registrations/edit.html.erb within layouts/application
+  Rendered users/registrations/edit.html.erb within layouts/application (3.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (1.2ms)
+  Rendered layouts/_navigation.html.erb (6.2ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 59ms (Views: 57.6ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-10-20 17:54:29 -0700
+Processing by Users::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"sk2wWWPh2yeXLgss9ytmGuYgu5QL7dajGGkhM4Hg0T5CbOuQcqu8vwqNt2waXVfrLbeZmcliC9jSH3EDO8rmYQ=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-20 17:54:30 -0700
+Processing by MoodController#index as HTML
+  [1m[36mInterest Load (0.2ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  Rendering mood/index.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  Rendered mood/index.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.6ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (2.7ms)
+  Rendered layouts/_navigation.html.erb (7.7ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 61ms (Views: 58.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-10-20 17:54:31 -0700
+Processing by MoodController#index as HTML
+  [1m[36mInterest Load (0.2ms)[0m  [1m[34mSELECT "interests".* FROM "interests"[0m
+  Rendering mood/index.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  Rendered mood/index.html.erb within layouts/application (3.2ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_nav_links_for_auth.html.erb (1.7ms)
+  Rendered layouts/_navigation.html.erb (5.2ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 75ms (Views: 71.6ms | ActiveRecord: 0.7ms)
+
+
