@@ -1,6 +1,8 @@
 class InboxController < ApplicationController
 	def index
-		@inboxMsgs = execute_sql_statement_direct('select * from user_user_mappings')
+        @sqlQuery='select * from user_user_mappings where id ='+params[:id];
+        puts sqlQuery 
+		@inboxMsgs = execute_sql_statement_direct(@sqlQuery)
         @inboxMsgs.each do |mssg|
             puts 'I am here 2'
             end
@@ -10,18 +12,52 @@ class InboxController < ApplicationController
         @fromUser=params[:primuser];
         @toUser=params[:secuser];
         @response=params[ :response];
-
-       if(@response=='Y')
-        #user-user mapping
         @presUserData=UserUserMapping.find_by primeUserID: @fromUser
-        @presUserSent=presUserData["sent"]
-        @presUserSent=@presUserSent+","+@toUse
-        UserUserMapping.where( primeUserID: @fromUser ).update_all( sent: @presUserSent )
+        @secUserData=UserUserMapping.find_by primeUserID: @toUser
 
-        @secUserData=UserUserMapping.find_by secUserID: @toUser
-        @secUserRcv=secUserData["received"]
-        @secUserRcv=@secUserRcv+","+@fromUser
-        UserUserMapping.where( primeUserID: @toUser ).update_all( received: @secUserRcv )
+        if(@response=='Y')
+        #prim user is the logged in user whereas the sec user is the one abt whom the prim user is giving prefernce(yes/no)
+        @secUserReject=(secUserData["nomatch"]).split(',')
+        puts 'list of users rejected by sec User '+ @secUserReject
+        @secUserLiked=(secUserData["sent"]).split(',')
+        puts 'list of users liked by sec user '+ @secUserLiked
+        if(@secUserReject.include? @fromUser) #Already No from secUSer
+            @presUserNoMatchDataArr=(presUserData["nomatch"]).split(',')
+            @presUserNoMatchDataArr=@presUserNoMatchDataArr + @toUser #there is not diff btw who said no first ?? shu we handle this case too later?
+            @presUserNoMatchData=@presUserNoMatchDataArr.join(',')
+            puts 'presUserNoMatchData'+ @presUserNoMatchData
+            UserUserMapping.where( primeUserID: @fromUser ).update_all( nomatch: @presUserNoMatchData )
+        
+
+        elsif(@secUserLiked.include? @fromUser) #Already Yes from secUser
+                #remove 
+                #
+                @presUserPrfctMatchDataArr=(presUserData["completematch"]).split(',')
+                @presUserPrfctMatchDataArr=@presUserPrfctMatchDataArr+@toUser
+                @presUserPrfctMatchData=@presUserPrfctMatchDataArr.join(',')
+                 puts 'presUserPrfctMatchData'+ @presUserPrfctMatchData
+                UserUserMapping.where( primeUserID: @fromUser ).update_all( completematch: @presUserPrfctMatchData )
+
+                @secUserPrfctMatchDataArr=(secUserData["completematch"]).split(',')
+                @secUserPrfctMatchDataArr=@secUserPrfctMatchDataArr+','+@fromUser
+                @secUserPrfctMatchData=@secUserPrfctMatchDataArr.join(',')
+                puts 'secUserPrfctMatchData'+ @secUserPrfctMatchData
+                UserUserMapping.where( primeUserID: @toUser ).update_all( completematch: @secUserPrfctMatchData )
+
+
+
+
+        else
+            
+            @presUserSentArr=(presUserData["sent"]).split(',')
+            @presUserSentArr=@presUserSentArr+@toUse
+            @presUserSent=@presUserSentArr.join(',')
+            UserUserMapping.where( primeUserID: @fromUser ).update_all( sent: @presUserSent )
+
+    
+            @secUserRcv=secUserData["received"]
+            @secUserRcv=@secUserRcv+","+@fromUser
+            UserUserMapping.where( primeUserID: @toUser ).update_all( received: @secUserRcv )
 
        elsif(@response == 'N')
         #user-user mapping

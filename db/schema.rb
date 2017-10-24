@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171021001038) do
+ActiveRecord::Schema.define(version: 20171024001711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,15 +34,13 @@ ActiveRecord::Schema.define(version: 20171021001038) do
 
   create_table "user_user_mappings", force: :cascade do |t|
     t.string   "primeUserID",   null: false
-    t.string   "secUserID",     null: false
-    t.string   "typeName"
-    t.string   "status"
     t.string   "timeslot"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.string   "sent"
     t.string   "received"
     t.string   "completematch"
+    t.string   "nomatch"
   end
 
   create_table "users", force: :cascade do |t|
