@@ -84,4 +84,4 @@ pickle-email-*.html
 *~
 
 # ignore schema
-db/schema.rb
+# db/schema.rb

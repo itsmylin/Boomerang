@@ -32,6 +32,15 @@ ActiveRecord::Schema.define(version: 20171014175639) do
       t.datetime "created_at", null: false
       t.datetime "updated_at", null: false
     end
+    create_table "user_user_mappings", force: :cascade do |t|
+      t.string   "primeUserID", null: false
+      t.string   "secUserID",   null: false
+      t.string   "typeName"
+      t.string   "status"
+      t.string   "timeslot"
+      t.datetime "created_at",  null: false
+      t.datetime "updated_at",  null: false
+    end
   
     create_table "users", force: :cascade do |t|
       t.string   "email",                  default: "", null: false
