@@ -24,6 +24,3 @@ Interest.create(name:'climbing',timeSlot: '1-5',location: 'Isla Vista',descripti
 Interest.create(name:'drinks',timeSlot: '1-5',location: 'Isla Vista',description: 'blehh')
 Interest.create(name:'hiking',timeSlot: '1-5',location: 'Isla Vista',description: 'blehh')
 Interest.create(name:'movies',timeSlot: '1-5',location: 'Isla Vista',description: 'blehh')
-
-UserUserMapping.create(primeUserID:'salon',secUserID: '15',typeName: 'nnn',status: 'blehh',timeslot: '77')
-
