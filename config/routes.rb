@@ -4,12 +4,13 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions', passwords: 'users/passwords' }
 
   resources :users
-  get 'inbox/:id', to: 'inbox#index'
+  get 'match/:id', to: 'match#index'
 
   resources :users do
     post 'notify', :on => :collection
   end
   resources :mood
   resources :meet
+  resources :match
 
 end
