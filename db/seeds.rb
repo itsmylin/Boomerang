@@ -15,6 +15,9 @@ ActiveRecord::Base.connection.execute "DELETE FROM Interests"
 user = CreateAdminService.new.call
 puts 'CREATED ADMIN USER: ' << user.email
 
+
+
+
 Interest.create(name:'food',timeSlot: '1-5',location: 'Isla Vista',description: 'blehh')
 Interest.create(name:'surfing',timeSlot: '1-5',location: 'Isla Vista',description: 'blehh')
 Interest.create(name:'shopping',timeSlot: '1-5',location: 'Isla Vista',description: 'blehh')
@@ -24,3 +27,5 @@ Interest.create(name:'climbing',timeSlot: '1-5',location: 'Isla Vista',descripti
 Interest.create(name:'drinks',timeSlot: '1-5',location: 'Isla Vista',description: 'blehh')
 Interest.create(name:'hiking',timeSlot: '1-5',location: 'Isla Vista',description: 'blehh')
 Interest.create(name:'movies',timeSlot: '1-5',location: 'Isla Vista',description: 'blehh')
+
+UserInterestMapping.create(userID: '1', interestID: '2')
