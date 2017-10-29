@@ -1,4 +1,4 @@
-class MatchController < ApplicationController
+class MeetController < ApplicationController
   def index
     set_interestID
     if session[:interest_id] != nil && user_signed_in?
