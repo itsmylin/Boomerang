@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-   # get 'matches/listing'
 
   root to: 'mood#index'
   devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions', passwords: 'users/passwords' }
@@ -11,6 +10,6 @@ Rails.application.routes.draw do
     post 'notify', :on => :collection
   end
   resources :mood
-  resources :match
+  resources :meet
 
 end

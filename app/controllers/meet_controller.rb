@@ -1,4 +1,4 @@
-class MatchController < ApplicationController
+class MeetController < ApplicationController
   def index
 
 
