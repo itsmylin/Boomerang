@@ -1,0 +1,23 @@
+$('#like-btn').bind('ajax:success', function() {
+    
+  $('#userImage').attr('src',"default_profile_image");
+  var element = document.getElementById('username');
+  // removing everything inside the node
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
+  // appending new text node
+  element.appendChild(document.createTextNode(<%= @user.name %>));
+});
+
+$('#dislike-btn').bind('ajax:success', function() {
+    
+  $('#userImage').attr('src','<%= @user.avatar.url(:medium) %>');
+  var element = document.getElementById('username');
+  // removing everything inside the node
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
+  // appending new text node
+  element.appendChild(document.createTextNode(<%= @user.name %>));
+});

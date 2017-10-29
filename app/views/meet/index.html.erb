@@ -1,16 +1,19 @@
+
+<h3>Meet</h3>
 <div class="container">
-  <div class="row">
-    <h3>Meet</h3>
-    <div class="column">
-      <table class="table">
-       <tbody>
-          <% @users.each do |user| %>
-            <tr>
-              <%= render user %>
-            </tr>
-          <% end %>
-         </tbody>
-       </table>
-    </div>
-  </div>
+  <div class="center">
+    <% if @user == nil %>
+      <h2 id="usernotfound">No user has same interest</h2>
+    <% else %>
+      <% if @user.avatar? %>
+        <%= image_tag @user.avatar.url(:medium) %>
+      <% else %>
+         <% image_tag 'default_profile_image' %>
+      <% end %>
+      <h2 id="username"><%= @user.name %></h2>
+    <% end %>
+    <%= link_to 'Like!', meet_index_path, class: "btn btn-primary", method: :post, :id => "like-btn", remote: true  %>
+    <%= link_to 'Dislike!', meet_index_path, class: "btn btn-danger", method: :post, :id => "dislike-btn", remote: true  %>
+  <div class="content"></div>
 </div>
+
