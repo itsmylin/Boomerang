@@ -1,19 +1,29 @@
-
 <h3>Meet</h3>
 <div class="container">
   <div class="center">
-    <% if @user == nil %>
+    <% if @users == nil %>
       <h2 id="usernotfound">No user has same interest</h2>
     <% else %>
-      <% if @user.avatar? %>
-        <%= image_tag @user.avatar.url(:medium) %>
+      <% if @users.first.avatar? %>
+        <%= image_tag  @users.first.avatar.url(:medium) , id: "userImage" %>
       <% else %>
-         <% image_tag 'default_profile_image' %>
+         <% image_tag 'default_profile_image', id: "userImage" %>
       <% end %>
-      <h2 id="username"><%= @user.name %></h2>
+      <h2 id="username"><%= @users.first.name %></h2>
     <% end %>
-    <%= link_to 'Like!', meet_index_path, class: "btn btn-primary", method: :post, :id => "like-btn", remote: true  %>
+    
+    <a href="#" onclick="paintIt(this, '#990000')">Paint it red</a>
+    <a href="#" id="abc">Paint it red</a>
+    <%= link_to 'Like!', meet_index_path, class: "btn btn-primary", method: :post, :id => "like-btn" %>
     <%= link_to 'Dislike!', meet_index_path, class: "btn btn-danger", method: :post, :id => "dislike-btn", remote: true  %>
   <div class="content"></div>
 </div>
 
+<script type=‘text/javascript’>
+console.log("posts.js loaded");
+$(document).ready(function(){
+    $("#abc").on("click", function(event) {
+        console.log("link clicked");
+    });
+});
+</script>

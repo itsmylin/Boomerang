@@ -2,12 +2,28 @@ class MeetController < ApplicationController
   def index
     set_interestID
     if session[:interest_id] != nil && user_signed_in?
-      @userInterestMapping = UserInterestMapping.where(interestID: session[:interest_id]).where.not(userID: current_user[:id]).sample()
+      @userInterestMapping = UserInterestMapping.where(interestID: session[:interest_id]).where.not(userID: current_user[:id])
     elsif session[:interest_id] != nil && !user_signed_in?
-      @userInterestMapping = UserInterestMapping.where(interestID: session[:interest_id]).sample()
+      @userInterestMapping = UserInterestMapping.where(interestID: session[:interest_id])
     else
-      @userInterestMapping = UserInterestMapping.all.sample()
+      @userInterestMapping = UserInterestMapping.all
     end
+    #@userInterestMappingList = User.all
+    @users = []
+    # @userInterestMappingList.each do |map|
+    #   @maps <<  { id: User.find(map.userID) , interest: Interest.find(map.interestID) }
+    # end
+    if @userInterestMapping != nil
+      @userInterestMapping.each do |map|
+        @users <<  User.find(map.userID)
+      end
+    else
+      @users = nil
+    end
+    session[:users] = @users
+    puts @users
+    puts 'asdasda'
+    puts session[:users].inspect
     #@userInterestMappingList = User.all
 
     # @userInterestMappingList.each do |map|
@@ -22,11 +38,6 @@ class MeetController < ApplicationController
     #     @users <<  User.find(map.userID)
     #   end
     # end
-    if @userInterestMapping != nil
-      @user = User.find(@userInterestMapping[:userID])
-    else
-      @user = nil
-    end
   end
   def create
     if !user_signed_in?
@@ -34,9 +45,21 @@ class MeetController < ApplicationController
     elsif current_interestID == nil
       redirect_to mood_index_path
     else
+      puts "I'm here"
+      puts session[:users]
+      puts "I'm here"
+      session[:users].shift 
+      puts session[:users]
+      if session[:users] != []
+        @users =  [User.new(session[:users][0])]
+      else
+        @users = nil
+      end
+      puts @users.inspect
+      puts @users.first.inspect
       # update database
-      @userInterestMappingList = UserInterestMapping.where(interestID: session[:interest_id]).where.not(userID: current_user[:id]).sample()
-      @user = User.find(@userInterestMapping[:userID])
+      #@userInterestMappingList = UserInterestMapping.where(interestID: session[:interest_id]).where.not(userID: current_user[:id]).sample()
+      #@user = User.find(@userInterestMapping[:userID])
       respond_to do |format|
         format.js
       end

@@ -1,23 +1,24 @@
+
 $('#like-btn').bind('ajax:success', function() {
-    
-  $('#userImage').attr('src',"default_profile_image");
-  var element = document.getElementById('username');
-  // removing everything inside the node
-  while (element.firstChild) {
-    element.removeChild(element.firstChild);
-  }
-  // appending new text node
-  element.appendChild(document.createTextNode(<%= @user.name %>));
+
+    $('#userImage').attr('src',"<%= @users.first.avatar.url(:medium) %>);
+    var element = document.getElementById('username');
+    // removing everything inside the node
+    while (element.firstChild) {
+      element.removeChild(element.firstChild);
+    }
+    // appending new text node
+    element.appendChild(document.createTextNode(<%= @users.first.name %>));
 });
 
 $('#dislike-btn').bind('ajax:success', function() {
     
-  $('#userImage').attr('src','<%= @user.avatar.url(:medium) %>');
+  $('#userImage').attr('src','<%= @users.first.avatar.url(:medium) %>');
   var element = document.getElementById('username');
   // removing everything inside the node
   while (element.firstChild) {
     element.removeChild(element.firstChild);
   }
   // appending new text node
-  element.appendChild(document.createTextNode(<%= @user.name %>));
+  element.appendChild(document.createTextNode(<%= @users.first.name %>));
 });
