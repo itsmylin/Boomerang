@@ -1,16 +1,37 @@
 <div class="container">
   <div class="row">
-    <h3>Matches</h3>
+    <h3>Ali's</h3>
     <div class="column">
       <table class="table">
-       <tbody>
-          <% @users.each do |user| %> 
-            <tr> 
-              <%= render user %>
+        <tbody>
+          <% @fakeusers.each do |fakeuser| %>
+            <tr>
+              <%= render fakeuser %>
             </tr>
           <% end %>
-         </tbody>
-       </table>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
+
+
+
+
+  <thead>
+    <tr>
+
+      <th>Person Name</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <%# <% @inboxMsgs.each do |msg| %\\> %>
+      <%# <td><%= msg["secUserID"] %\\></td> %>
+      <%# <td><%= msg["typeName"] %\\></td> %>
+
+      <%# <% end %\\> %>
+    </tr>
+  </tbody>
+</table>

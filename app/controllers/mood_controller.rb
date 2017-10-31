@@ -1,8 +1,8 @@
 class MoodController < ApplicationController
-  require 'date'  
+  require 'date'
   def index
     @interestList=Interest.all
-    
+
 # Function to convert interest list into chunks of 3 for display
     @interestChunks =  []
     @counter = 0
@@ -16,9 +16,9 @@ class MoodController < ApplicationController
       else
         @helperArr << interest
         @counter += 1
-      end 
+      end
     end
-   puts @interestChunks     
+   puts @interestChunks
 
 
 
@@ -36,14 +36,14 @@ class MoodController < ApplicationController
         UserInterestMapping.create( userID: @user_id, interestID:@interest_id )
       else
         if @update_user.interestID == @interest_id.to_s
-          @update_user.save 
+          @update_user.save
         elsif @update_user.interestID != @interest_id.to_s
           @update_user.interestID = @interest_id
           @update_user.save
         end
-      end 
+      end
     end
-    redirect_to match_index_path
+    redirect_to meet_index_path
   end
-  
+
 end

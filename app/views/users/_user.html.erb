@@ -1,2 +1,13 @@
-<td><%= link_to user.name, user %></td>
+<td>
+  <p style="float: left;">
+      <% if user.avatar? %>
+        <%= image_tag user.avatar.url(:thumb), class: "round-image-50" %>
+        <% else %>
+          <%= image_tag "default_profile_image.png", class: "round-image-50" %>
+      <% end %>
+  </p>
+</td>
+<td>
+  <%= link_to user.name, user %>
+</td>
 <td><%= link_to user.email, user %></td>

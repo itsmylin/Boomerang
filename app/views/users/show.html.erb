@@ -1,6 +1,15 @@
 <h3>User</h3>
+<div>
+  <p style="float: left;">
+      <% if @user.avatar? %>
+        <%= image_tag @user.avatar.url(:thumb), class: "round-image-50" %>
+      <% else %>
+        <%= image_tag "default_profile_image.png", class: "round-image-50" %>
+      <% end %>
+  </p>
 <p>Name: <%= @user.name if @user.name %></p>
 <p>Email: <%= @user.email if @user.email %></p>
+</div>
 
 
   <%= button_to 'interested!', {:controller => "users", :action => "notify", :user_id => @user.id} , :method=>:post %>
