@@ -1,13 +1,34 @@
-class InboxController < ApplicationController
+class MatchController < ApplicationController
 	def index
+			if params[:id]!=nil
         @sqlQuery='select * from user_user_mappings where id ='+params[:id];
-        puts sqlQuery 
-		@inboxMsgs = execute_sql_statement_direct(@sqlQuery)
-        @inboxMsgs.each do |mssg|
+        puts @sqlQuery
+				@inboxMsgs = execute_sql_statement_direct(@sqlQuery)
+
+
+				@inboxMsgs.each do |mssg|
             puts 'I am here 2'
-            end
+        end
+			end
+
+				#Ali was here -- simple code to just have an inbox page
+				if session[:interest_id] != nil
+					@fakeuserInterestMappingList = UserInterestMapping.where(interestID: session[:interest_id])
+				else
+					@fakeuserInterestMappingList = UserInterestMapping.all
+				end
+				@fakeusers = []
+				@fakeuserInterestMappingList.each do |fakemap|
+					if user_signed_in?
+						unless  fakemap.userID.to_i == current_user.id
+						 @fakeusers <<  User.find(fakemap.userID)
+						end
+					else
+						@fakeusers <<  User.find(fakemap.userID)
+					end
+				end
 	end
-    
+
     def updateResponse()
         @fromUser=params[:primuser];
         @toUser=params[:secuser];
@@ -27,10 +48,10 @@ class InboxController < ApplicationController
             @presUserNoMatchData=@presUserNoMatchDataArr.join(',')
             puts 'presUserNoMatchData'+ @presUserNoMatchData
             UserUserMapping.where( primeUserID: @fromUser ).update_all( nomatch: @presUserNoMatchData )
-        
+
 
         elsif(@secUserLiked.include? @fromUser) #Already Yes from secUser
-                #remove 
+                #remove
                 #
                 @presUserPrfctMatchDataArr=(presUserData["completematch"]).split(',')
                 @presUserPrfctMatchDataArr=@presUserPrfctMatchDataArr+@toUser
@@ -48,22 +69,23 @@ class InboxController < ApplicationController
 
 
         else
-            
+
             @presUserSentArr=(presUserData["sent"]).split(',')
             @presUserSentArr=@presUserSentArr+@toUse
             @presUserSent=@presUserSentArr.join(',')
             UserUserMapping.where( primeUserID: @fromUser ).update_all( sent: @presUserSent )
 
-    
+
             @secUserRcv=secUserData["received"]
             @secUserRcv=@secUserRcv+","+@fromUser
             UserUserMapping.where( primeUserID: @toUser ).update_all( received: @secUserRcv )
-
+			end
        elsif(@response == 'N')
         #user-user mapping
+				puts '@response == \'N\''
        else
          puts 'Some Issue'
-       end 
+       end
 
     end
 	def execute_sql_statement_direct(sql)
