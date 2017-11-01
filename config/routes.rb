@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :users
   get 'match/:id', to: 'match#index'
 
+  post 'matchUpdate', to:'match#updateResponse'
+
   resources :users do
     post 'notify', :on => :collection
   end
