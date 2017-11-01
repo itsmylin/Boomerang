@@ -1,25 +1,31 @@
+
+
 <h3>What mood are you in?</h3>
-      <div class="btn-group btn-group-justified", style= "width = 100%">
-        <% @interestChunks.each do |chunk| %>
-      <div class="row">
-        <div class="col-sm-4 text-center" >
-          <%= button_to chunk[0].name, {:controller => "mood", :action => "create", :interest_id => chunk[0].id} , :method=>:post , :class=> "btn-lg", :style => "width:100%" %>
-       </div>
-        <div class="col-sm-4 text-center" >
-                 <%= button_to chunk[1].name, {:controller => "mood", :action => "create", :interest_id => chunk[1].id} , :method=>:post , :class=> "btn-lg", :style => "width:100%" %>
+  <% @interestChunks.each do |chunk| %>
+    <div class="square">
+        <div class="content">
+                    <%= button_to  chunk[0].name, {:controller => "mood", :action => "create", :interest_id => chunk[0].id} , :method=>:post , :class=> "content",:style => "width:100%;color:white;text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black",  :id => chunk[0].name %>
+          
+                  
+    </div>
+  </div>
+
+
+    <div class="square">
+        <div class="content">
+                   <%= button_to chunk[1].name, {:controller => "mood", :action => "create", :interest_id => chunk[1].id} , :method=>:post , :class=> "content",:style => "width:100%;color:white;text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -2px black",  :id => chunk[1].name  %>
+
         </div>
-        <div class="col-sm-4 text-center" > 
-              <%= button_to chunk[2].name, {:controller => "mood", :action => "create", :interest_id => chunk[2].id} , :method=>:post , :class=> "btn-lg", :style => "width:100%" %>
+    </div>
+    <div class="square">
+        <div class="content">
+
+                   <%= button_to chunk[2].name, {:controller => "mood", :action => "create", :interest_id => chunk[2].id} , :method=>:post , :class=> "content",:style => "width:100%;color:white;text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black",  :id => chunk[2].name  %>
+
         </div>
+    </div>
 
-
-      </div>
-
-    <% end -%>
-</div>
-
-
-
+<% end %>
 
 
 <br><br>
