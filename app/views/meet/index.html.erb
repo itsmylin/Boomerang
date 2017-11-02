@@ -1,25 +1,26 @@
 <div class="container">
   <div class="center">
-    <h3>Meet</h3>
-    <% @users.each_with_index do |user, index| %>
-      <div class="card-center" >
-        <div class="card-img1" style="background-image: url(<%= asset_path 'default_profile_image.png' %>);z-index:<%= index %>;">
-          <% if user.avatar? %>
-            <%= image_tag user.avatar.url(:medium) %>
-          <% else %>
-            <div class="card-img" style="background-image: url(<%= asset_path 'default_profile_image.png' %>);z-index:<%= index %>;">
-            I'm here
+    <h2>Meet</h2>
+    <div class="card-center">
+      <% @users.each_with_index do |user, index| %>
+        <% if user.avatar? %>
+        <div class="card-img" style="background-image: url(<%= user.avatar.url(:medium) %>);" z-index: <%= index %> ></div>
+          <div class="user-name">
+            <%= link_to user.name, user %>
+            <br />
+            <%= link_to user.email, user %>
+          </div>
+        <% else %>
+          <div class="card-img" style="background-image: url(<%= asset_path 'default_profile_image.png' %>);"  z-index:<%= index %> ></div>
+            <div class="user-name">
+              <%= link_to user.name, user %>
+              <br />
+              <%= link_to user.email, user %>
             </div>
-          <% end %>
-        </div>
-        <%= link_to user.name, user %>
-        <br />
-        <%= link_to user.email, user %>
-        <br />
-      </div>
-    <% end %>
+        <% end %>
+      <% end %>
     <% if user_signed_in? %>
-      <div class="btn-group">
+      <div class="btn">
         <div class="inner"><%= button_to 'Like!', meet_index_path, class: "btn btn-primary", method: :post, :id => "like-btn", params: {primuser: current_user[:id], secuser: '1', response: 'Y' } %></div>
         <div class="inner"><%= button_to 'Dislike!', meet_index_path, class: "btn btn-danger", method: :post, :id => "dislike-btn", remote: true, params: {primuser: current_user[:id], secuser: '1', response: 'N' }  %></div>
       </div>
@@ -29,5 +30,6 @@
         <div class="inner"><%= button_to 'Dislike!', meet_index_path, class: "btn btn-danger", method: :post, :id => "dislike-btn", remote: true %></div>
       </div>
     <% end %>
+    </div>
   </div>
 </div>
