@@ -1,32 +1,28 @@
+require 'json'
+
 class MatchController < ApplicationController
 	def index
-			if params[:id]!=nil
-        @sqlQuery='select * from user_user_mappings where id ='+params[:id];
-        puts @sqlQuery
-				@inboxMsgs = execute_sql_statement_direct(@sqlQuery)
+        
+		if params[:id]!=nil
+            puts 'Are v ready to get data '
+            @sqlQuery='select * from user_user_mappings where id ='+params[:id];
+            puts @sqlQuery
+    		@inboxMsgs = execute_sql_statement_direct(@sqlQuery)
+    		@inboxMsgs.each do |mssg|
+            puts 'I am populating my json with the values'
+            
+            end
+		end
 
-
-				@inboxMsgs.each do |mssg|
-            puts 'I am here 2'
-        end
-			end
-
-				#Ali was here -- simple code to just have an inbox page
-				if session[:interest_id] != nil
-					@fakeuserInterestMappingList = UserInterestMapping.where(interestID: session[:interest_id])
-				else
-					@fakeuserInterestMappingList = UserInterestMapping.all
-				end
-				@fakeusers = []
-				@fakeuserInterestMappingList.each do |fakemap|
-					if user_signed_in?
-						unless  fakemap.userID.to_i == current_user.id
-						 @fakeusers <<  User.find(fakemap.userID)
-						end
-					else
-						@fakeusers <<  User.find(fakemap.userID)
-					end
-				end
+		puts 'Ishani Fake User?'
+            @sqlQuery='select * from user_user_mappings where id = 1';
+            puts @sqlQuery
+            @inboxMsgs = execute_sql_statement_direct(@sqlQuery)
+            #@inboxMsgs.each do |mssg|
+            puts 'I am populating my json with the values'
+            json_response = '{"entries":[{"personid":"User_1","type":"match"},{"personid":"User_2","type":"rcvd"}]}'
+            hash_response = JSON.parse(json_response)
+            @matchedUsers = hash_response['entries']
 	end
 
     def updateResponse()
