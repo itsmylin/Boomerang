@@ -13,6 +13,7 @@
     padding-bottom : 27%; /* = width for a 1:1 aspect ratio */
     margin:1.66%;
     overflow:hidden;
+    font-size: 30px;
 }
 
 .square-sm{
@@ -24,7 +25,7 @@
     padding-bottom : 45%; /* = width for a 1:1 aspect ratio */
     margin:1.66%;
     overflow:hidden;
-
+    font-size: 20px;
 }
 
 .content {
@@ -33,7 +34,7 @@
     height:98%; /* = 100% - 2*10% padding */
     width:98%; /* = 100% - 2*5% padding */
     padding:  2%;
-    font-size: 30px;
+    
     .rs{
     	
     	display: inline-block;
