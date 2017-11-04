@@ -1,32 +1,107 @@
 
 
 <h3>What mood are you in?</h3>
-  <% @interestChunks.each do |chunk| %>
-    <div class="square">
+
+=  <!-- <%# @interestChunks.each do |chunk| %> -->
+
+
+    <div class="col">
+    <div id="body" class="square">
         <div class="content">
-                    <%= button_to  chunk[0].name, {:controller => "mood", :action => "create", :interest_id => chunk[0].id} , :method=>:post , :class=> "content",:style => "width:100%;color:white;text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black",  :id => chunk[0].name %>
+                    <%= button_to  @interestChunks[0][0].name, {:controller => "mood", :action => "create", :interest_id=>  @interestChunks[0][0].id} , :method=>:post , :class=> "content",:style => "width:100%;color:white;text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black",  :id =>  @interestChunks[0][0].name %>
           
                   
     </div>
   </div>
+</div>
 
 
-    <div class="square">
+
+  <div class="col">
+    <div id="body" class="square">
         <div class="content">
-                   <%= button_to chunk[1].name, {:controller => "mood", :action => "create", :interest_id => chunk[1].id} , :method=>:post , :class=> "content",:style => "width:100%;color:white;text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -2px black",  :id => chunk[1].name  %>
+                   <%= button_to @interestChunks[0][1].name, {:controller => "mood", :action => "create", :interest_id => @interestChunks[0][1].id} , :method=>:post , :class=> "content",:style => "width:100%;color:white;text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -2px black",  :id => @interestChunks[0][1].name  %>
 
         </div>
     </div>
-    <div class="square">
+  </div>
+<div class="clearfix hidden-md hidden-lg"></div>
+  <div class="col">
+    <div id="body" class="square">
         <div class="content">
 
-                   <%= button_to chunk[2].name, {:controller => "mood", :action => "create", :interest_id => chunk[2].id} , :method=>:post , :class=> "content",:style => "width:100%;color:white;text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black",  :id => chunk[2].name  %>
+                   <%= button_to @interestChunks[0][2].name, {:controller => "mood", :action => "create", :interest_id =>  @interestChunks[0][2].id} , :method=>:post , :class=> "content",:style => "width:100%;color:white;text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black",  :id =>  @interestChunks[0][2].name  %>
 
         </div>
     </div>
+  </div>
 
-<% end %>
+  <div class="col">
+    <div id="body" class="square">
+        <div class="content">
+                    <%= button_to  @interestChunks[1][0].name, {:controller => "mood", :action => "create", :interest_id=> @interestChunks[1][0].id} , :method=>:post , :class=> "content",:style => "width:100%;color:white;text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black",  :id => @interestChunks[1][0].name %>
+          
+                  
+    </div>
+  </div>
+</div>
+<div class="clearfix hidden-md hidden-lg"></div>
 
+
+
+  <div class="col">
+    <div id="body" class="square">
+        <div class="content">
+                   <%= button_to @interestChunks[1][1].name, {:controller => "mood", :action => "create", :interest_id => @interestChunks[1][1].id} , :method=>:post , :class=> "content",:style => "width:100%;color:white;text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -2px black",  :id => @interestChunks[1][1].name  %>
+
+        </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div id="body" class="square">
+        <div class="content">
+
+                   <%= button_to @interestChunks[1][2].name, {:controller => "mood", :action => "create", :interest_id => @interestChunks[1][2].id} , :method=>:post , :class=> "content",:style => "width:100%;color:white;text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black",  :id => @interestChunks[1][2].name  %>
+
+        </div>
+    </div>
+  </div>
+<div class="clearfix hidden-md hidden-lg"></div>
+
+  <div class="col">
+    <div id="body" class="square">
+        <div class="content">
+                    <%= button_to  @interestChunks[2][0].name, {:controller => "mood", :action => "create", :interest_id=> @interestChunks[2][0].id} , :method=>:post , :class=> "content",:style => "width:100%;color:white;text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black",  :id => @interestChunks[2][0].name %>
+          
+                  
+    </div>
+  </div>
+</div>
+
+
+
+  <div class="col">
+    <div id="body" class="square">
+        <div class="content">
+                   <%= button_to @interestChunks[2][1].name, {:controller => "mood", :action => "create", :interest_id => @interestChunks[2][1].id} , :method=>:post , :class=> "content",:style => "width:100%;color:white;text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -2px black",  :id => @interestChunks[2][1].name  %>
+
+        </div>
+    </div>
+  </div>
+<div class="clearfix hidden-md hidden-lg"></div>
+
+  <div class="col">
+    <div id="body" class="square">
+        <div class="content">
+
+                   <%= button_to @interestChunks[2][2].name, {:controller => "mood", :action => "create", :interest_id => @interestChunks[2][2].id} , :method=>:post , :class=> "content",:style => "width:100%;color:white;text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black",  :id => @interestChunks[2][2].name  %>
+
+        </div>
+    </div>
+  </div>
+
+<!-- <%# end %>-->
 
 <br><br>
 <p> <%= link_to 'Current Users:', users_path %> <%= User.count %></p>
