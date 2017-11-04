@@ -1,35 +1,40 @@
-<div class="container">
-  <div class="center">
-    <h2>Meet</h2>
-    <div class="card-center">
+
+<div class="center">
+  <h2>Meet</h2>
+  <div class="card-center" id="content">
+    <% if @users %>
       <% @users.each_with_index do |user, index| %>
         <% if user.avatar? %>
-        <div class="card-img" style="background-image: url(<%= user.avatar.url(:medium) %>);" z-index: <%= index %> ></div>
-          <div class="user-name">
-            <%= link_to user.name, user %>
-            <br />
-            <%= link_to user.email, user %>
+          <div class="card-img" data-id="<%= user.id %>" style="background-image: url(<%= user.avatar.url(:medium) %>);">
+            <div class="user-name">
+              <%= user.name  %>
+            </div>
           </div>
         <% else %>
-          <div class="card-img" style="background-image: url(<%= asset_path 'default_profile_image.png' %>);"  z-index:<%= index %> ></div>
+          <div class="card-img" data-id="<%= user.id %>" style="background-image: url(<%= asset_path 'default_profile_image.png' %>);">
             <div class="user-name">
-              <%= link_to user.name, user %>
-              <br />
-              <%= link_to user.email, user %>
+              <%= user.name %>
             </div>
+          </div>
         <% end %>
       <% end %>
-    <% if user_signed_in? %>
-      <div class="btn">
-        <div class="inner"><%= button_to 'Like!', meet_index_path, class: "btn btn-primary", method: :post, :id => "like-btn", params: {primuser: current_user[:id], secuser: '1', response: 'Y' } %></div>
-        <div class="inner"><%= button_to 'Dislike!', meet_index_path, class: "btn btn-danger", method: :post, :id => "dislike-btn", remote: true, params: {primuser: current_user[:id], secuser: '1', response: 'N' }  %></div>
-      </div>
     <% else %>
-      <div class="btn-group">
-        <div class="inner"><%= button_to 'Like!', meet_index_path, class: "btn btn-primary", method: :post, :id => "like-btn" %></div>
-        <div class="inner"><%= button_to 'Dislike!', meet_index_path, class: "btn btn-danger", method: :post, :id => "dislike-btn", remote: true %></div>
+      <div class="user">
+        No user here!
       </div>
     <% end %>
-    </div>
   </div>
+  <% if user_signed_in? %>
+    <div class="btn">
+      <button class="btn btn-primary" id="like" data-session="<%= current_user[:id]%>" onclick="like()">Like</button>
+      <button class="btn btn-danger" id="dislike" data-session="<%= current_user[:id]%>" onclick="dislike()">Dislike</button>
+    </div>
+  <% else %>
+    <div class="btn">
+      <button class="btn btn-primary" onclick="like()">Like</button>
+      <button class="btn btn-danger" onclick="dislike()">Dislike</button>
+    </div>
+  <% end %>
 </div>
+
+
