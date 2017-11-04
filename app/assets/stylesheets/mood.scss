@@ -9,9 +9,9 @@
 
     float:left;
     position: relative;
-    width: 27%;
-    padding-bottom : 27%; /* = width for a 1:1 aspect ratio */
-    margin:1.66%;
+    width: 33.33%;
+    padding-bottom : 33.33%; /* = width for a 1:1 aspect ratio */
+    margin:0;
     overflow:hidden;
     font-size: 30px;
 }
@@ -21,9 +21,9 @@
 
     float:left;
     position: relative;
-    width: 45%;
-    padding-bottom : 45%; /* = width for a 1:1 aspect ratio */
-    margin:1.66%;
+    width: 50%;
+    padding-bottom : 50%; /* = width for a 1:1 aspect ratio */
+    margin:0%;
     overflow:hidden;
     font-size: 20px;
 }
@@ -31,9 +31,9 @@
 .content {
     position:absolute;
     color: "white" !important; 
-    height:98%; /* = 100% - 2*10% padding */
-    width:98%; /* = 100% - 2*5% padding */
-    padding:  2%;
+    height:100%; /* = 100% - 2*10% padding */
+    width:100%; /* = 100% - 2*5% padding */
+    padding:  0%;
     
     .rs{
     	
