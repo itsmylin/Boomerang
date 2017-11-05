@@ -1,149 +1,58 @@
 // Place all the styles related to the mood controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
 
 
+//// Ali
 
-.square {
+#photos {
+   /* Prevent vertical gaps */
+   line-height: 0;
 
-    float:left;
-    position: relative;
-    width: 27%;
-    padding-bottom : 27%; /* = width for a 1:1 aspect ratio */
-    margin:1.66%;
-    overflow:hidden;
-    font-size: 30px;
+   -webkit-column-count: 5;
+   -webkit-column-gap:   0px;
+   -moz-column-count:    5;
+   -moz-column-gap:      0px;
+   column-count:         5;
+   column-gap:           0px;
 }
 
-.square-sm{
-  
-
-    float:left;
-    position: relative;
-    width: 45%;
-    padding-bottom : 45%; /* = width for a 1:1 aspect ratio */
-    margin:1.66%;
-    overflow:hidden;
-    font-size: 20px;
+#photos img {
+  /* Just in case there are inline attributes */
+  width: 100% !important;
+  height: auto !important;
 }
 
-.content {
-    position:absolute;
-    color: "white" !important; 
-    height:98%; /* = 100% - 2*10% padding */
-    width:98%; /* = 100% - 2*5% padding */
-    padding:  2%;
-    
-    .rs{
-    	
-    	display: inline-block;
-    	width:auto;
-    	height:auto;
-    	max-height:90%;
-    	max-width:100%;
-    	}
-
-
+@media (max-width: 1200px) {
+  #photos {
+  -moz-column-count:    4;
+  -webkit-column-count: 4;
+  column-count:         4;
+  }
+}
+@media (max-width: 1000px) {
+  #photos {
+  -moz-column-count:    3;
+  -webkit-column-count: 3;
+  column-count:         3;
+  }
+}
+@media (max-width: 800px) {
+  #photos {
+  -moz-column-count:    2;
+  -webkit-column-count: 2;
+  column-count:         2;
+  }
+}
+@media (max-width: 400px) {
+  #photos {
+  -moz-column-count:    1;
+  -webkit-column-count: 1;
+  column-count:         1;
+  }
 }
 
-
-.table{
-    display:table;
-    height:100%;
-    width:100%;
-}
-.table-cell{
-    display:table-cell;
-    vertical-align:middle;
-    height:100%;
-    width:100%;
-}
-.btn-sq-lg {
-  width: 375px !important;
-  height: 375px !important;
-  font-size: 2.2em
-}
-
-
-#surfing{
-
-	background-image: url("surf.jpg");
-	background-size: cover;
-
-}
-#food{
-	background-image: url("food.jpeg");
-	background-size: cover;
-	color: "white"
-
-}
-#drinks{
-	background-image: url("drinks.jpeg");
-	background-size: cover;
-	color: "black"
-
-}
-#climbing{
-	background-image: url("climbing.jpeg");
-	background-size: cover;
-	color: "black"
-
-}
-#hiking{
-	background-image: url("hiking.jpg");
-	background-size: cover;
-	color: "white"
-
-}
-#movies{
-	background-image: url("movies.jpg");
-	background-size: cover;
-	color: "white"
-
-}
-#salon{
-	background-image: url("salon.jpeg");
-	background-size: cover;
-	color: "black"
-
-}
-#shopping{
-	background-image: url("shopping.jpeg");
-	background-size: cover;
-	color: "black"
-
-}
-#soccer{
-	background-image: url("soccer.jpeg");
-	background-size: cover;
-	color: "black"
-
-}
-
-
-/* The heart of the matter */
-.btn-matrix > .btn:nth-child(3n+4) {
-  clear: left;
-  margin-left: 0;
-}
-.btn-matrix > .btn:nth-child(n+4) {
-  margin-top: -1px;
-}
-.btn-matrix > .btn:first-child {
-  border-bottom-left-radius: 0;
-}
-.btn-matrix > .btn:nth-child(3) {
-  border-top-right-radius: 4px !important;
-}
-.btn-matrix > .btn:nth-last-child(3) {
-  border-bottom-left-radius: 4px !important;
-}
-.btn-matrix > .btn:last-child {
-  border-top-right-radius: 0;
-}
-
-/* Decorations */
-.btn-matrix {
-  margin: 20px;
+body {
+  margin: 0;
+  padding: 0;
 }
