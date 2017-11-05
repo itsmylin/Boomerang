@@ -15,17 +15,8 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
-//= stub_tree page_specific
-//= require_tree ../../../vendor/assets/javascripts
 
-// Ali: I removed the following line so that not all JS file get called
-// to iprove the performance
 
-// If you need a page-specific page JS: create a directory (e.g. mood)
-// add your JS files to /mood
-// in the source file (e.g. views/mood/index.html.erb) add this:
-// <%= javascript_include_tag 'mood/mood'%>
-// to include that JS specifically in this page-specific
-// if you need app-specific JS ( for all or most pages)
-// add it to another directory (e.g. app)
-// add this:
+
+// Ali: excluding specific JS to improve performance
+//= stub page_specific/mood.js

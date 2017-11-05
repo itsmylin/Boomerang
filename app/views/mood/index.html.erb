@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 
 
  <!-- <%# @interestChunks.each do |chunk| %> -->
@@ -11,6 +12,19 @@
 heyyyyyyyyyyyyy
 </section>
 <%= javascript_include_tag 'page_specific/mood.js'%>
+=======
+  <% @interestList.each do |interest| %> 
+
+    <div class="col">
+      <div id="body" class="square">
+        <div class="content">
+                    <%= button_to  interest.name, {:controller => "mood", :action => "create", :interest_id=>  interest.id} , :method=>:post , :class=> "content",:style => "width:100%;color:white;text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black",  :id =>  interest.name %> 
+      </div>
+    </div>
+  </div>
+
+  <% end %>
+>>>>>>> ae41415de3c71448647a348b170172396599db98
 
 <br><br>
 <p> <%= link_to 'Current Users:', users_path %> <%= User.count %></p>
