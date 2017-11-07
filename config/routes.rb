@@ -14,5 +14,5 @@ Rails.application.routes.draw do
   resources :mood
   resources :meet
   resources :match
-
+  
 end

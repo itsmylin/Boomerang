@@ -1,0 +1,7 @@
+#A readme file from Ali
+#How to add a JS to a specific page:
+
+1) add your yourfile.js under assets/javascripts/page_specific
+2) add "//= stub page_specific/file.js" to assets/javascripts/application.js (to exclude this JS to be loaded all time otherwise this will be called for all pages)
+3) add "Rails.application.config.assets.precompile += %w( page_specific/yourfile.js )" to config/initilizers/assets.rb to precompile and have it ready
+4) add "<%= javascript_include_tag 'page_specific/yourfile.js'%>" in your html file in /views/YOURPAGE (e.g mood)

@@ -15,3 +15,8 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+
+
+
+// Ali: excluding specific JS to improve performance
+//= stub page_specific/mood.js
