@@ -8,8 +8,8 @@
           <div class="panel-body">
             <div class="pull-right">
               <div class="btn-group">
-                <button type="button" id ="prfcBut" class="btn btn-success btn-filter" onclick="myFunction()" data-target="match">A Perfect Match ! </button>
-                <button type="button" id= "oneWayBut" class="btn btn-warning btn-filter" data-target="rcvd">Wanna Meet ?</button>
+                <button type="button" id ="prfcBut" class="btn btn-success btn-filter" onclick="hideRcvd()" data-target="match">A Perfect Match ! </button>
+                <button type="button" id= "oneWayBut" class="btn btn-warning btn-filter" onclick="hideMatch()" data-target="rcvd">Wanna Meet ?</button>
               </div>
             </div>
             <div class="table-container" >
@@ -38,7 +38,8 @@
                           <h4 class="title">
 
                             <%= matchUsr['personid'] %>
-                            <span class="pull-right pendiente">(Total Match)</span>
+                            <span class="pull-right pendiente"><%= matchUsr['type'] %></span>
+                            <button type="button" id =<%= matchUsr['type'] %> class="btn btn-success btn-filter" onclick="redirectMap()" >
                           </h4>
                           <p class="summary">Congrats..you got a match !</p>
                         </div>
