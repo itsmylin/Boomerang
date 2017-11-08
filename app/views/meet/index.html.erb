@@ -24,17 +24,21 @@
       </div>
     <% end %>
   </div>
-  <% if user_signed_in? %>
+  <% if session[:interest_id] != nil && user_signed_in? %>
     <div class="btn">
-      <button class="btn btn-primary" id="like" data-session="<%= current_user[:id]%>" onclick="like()">Like</button>
-      <button class="btn btn-danger" id="dislike" data-session="<%= current_user[:id]%>" onclick="dislike()">Dislike</button>
+      <button class="btn btn-primary" id="like" data-session="<%= current_user[:id]%>" data-session2="<%= session[:interest_id]%>" >Like</button>
+      <button class="btn btn-danger" id="dislike" data-session="<%= current_user[:id]%>">Dislike</button>
+    </div>
+  <% elsif session[:interest_id] != nil && !user_signed_in? %>
+    <div class="btn">
+      <%= link_to 'Like', new_user_session_path, class: "btn btn-primary" %>
+      <%= link_to 'Dislike', new_user_session_path, class: "btn btn-danger" %>
     </div>
   <% else %>
-    <div class="btn">
-      <button class="btn btn-primary" onclick="like()">Like</button>
-      <button class="btn btn-danger" onclick="dislike()">Dislike</button>
-    </div>
+      <%= link_to 'Like', mood_index_path, class: "btn btn-primary" %>
+      <%= link_to 'Dislike', mood_index_path, class: "btn btn-danger" %>
   <% end %>
 </div>
 
 
+<%= javascript_include_tag 'page_specific/meet.js' %>

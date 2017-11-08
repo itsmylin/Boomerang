@@ -20,3 +20,4 @@
 
 // Ali: excluding specific JS to improve performance
 //= stub page_specific/mood.js
+//= stub page_specific/meet.js

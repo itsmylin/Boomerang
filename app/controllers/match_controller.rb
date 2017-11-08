@@ -25,7 +25,7 @@ class MatchController < ApplicationController
             @matchedUsers = hash_response['entries']
 	end
 
-    def updateResponse()
+    def updateResponse
         puts 'I am inside update Response'
         @fromUser=params[:primuser];
         @toUser=params[:secuser];
@@ -35,7 +35,15 @@ class MatchController < ApplicationController
 
         puts @presUserData.inspect
         puts @secUserData.inspect
-        
+        if @presUserData == nil
+            @preUserData = UserUserMapping.create(primeUserID: @fromUser, timeslot: '')
+        end
+        if @secUserdData == nil
+            @secUserData = UserUserMapping.create(primeUserID: @toUser, timeslot: '')
+        end
+        puts @presUserData.inspect
+        puts @secUserData.inspect
+
         #puts 'I am printing all the incoeming values'
         #puts @fromUser
         #puts @toUser
@@ -126,7 +134,13 @@ class MatchController < ApplicationController
         else
          puts 'Some Issue'
        end
-       
+       @userInterestMapping = UserInterestMapping.where(interestID: session[:interest_id]).where.not(userID: current_user[:id]).order("RANDOM()").limit(1)
+       @users = User.find(@userInterestMapping.userID);
+        respond_to do |format|
+            msg = { :status => "ok", :message => "Success!", :data => @user }
+            format.json  { render :json => msg } # don't do msg.to_json
+        end
+        
 
     end
 	def execute_sql_statement_direct(sql)

@@ -39,7 +39,17 @@ class MeetController < ApplicationController
     #   end
     # end
   end
-
+  def create
+    puts current_user
+    @userID=params[:primuser]
+    @interestID = params[:interestID] 
+    @userInterestMapping = UserInterestMapping.where(interestID: @interestID).where.not(userID: @userID).order("RANDOM()").limit(1)
+    @users = User.find(@userInterestMapping[0].userID);
+     respond_to do |format|
+         msg = { :status => "ok", :message => "Success!", :data => @users }
+         format.json  { render :json => msg } # don't do msg.to_json
+     end
+  end
   protected
   def set_interestID
     if user_signed_in? 
