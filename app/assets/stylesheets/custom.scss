@@ -68,13 +68,29 @@ footer {
   }
   .round-image-50 {
       background-color: white;
-      border: 1px solid #d9d9d9;
-      border-radius: 25px;
-      -moz-border-radius: 25px;
-      -webkit-border-radius: 25px;
-      height: 50px;
-      width: 50px;
+      border: 3px solid white;
+      border-radius: 29px;
+      -moz-border-radius: 29px;
+      -webkit-border-radius: 29px;
+      height: 75px;
+      width: 75px;
       overflow: hidden;
       text-align: center;
       img { width: 100% }
   }
+
+  .navbar-collapse.collapse {
+  display: block!important;
+}
+
+.navbar-nav>li, .navbar-nav {
+  float: left !important;
+}
+
+.navbar-nav.navbar-right:last-child {
+  margin-right: -15px !important;
+}
+
+.navbar-right {
+  float: right!important;
+}

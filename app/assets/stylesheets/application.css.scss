@@ -13,3 +13,42 @@
  *= require_tree .
  *= require_self
  */
+ body{
+    padding-top:0px;
+    margin-top: 0px;
+ }
+
+body {
+  padding-top: 0px;
+}
+@media (max-width: 979px) {
+  body {
+    padding-top: 0px;
+  }
+}
+
+ .navbar{
+   background: rgba(0,0,0,0);
+
+ }
+ .navbar .nav > li > a {
+     float: none;
+     color:  white;
+ }
+ .navbar {
+   .navbar-brand {
+     color: white;
+   };
+   border: none;
+   box-shadow: none;
+
+ }
+.navbar-collapse {
+  border: none;
+  box-shadow: none;
+
+}
+//theg top gap does not have to do eith header
+.navbar-header {
+
+}

@@ -5,11 +5,13 @@ function getRandomSize(min, max) {
 }
 
 var allImages = "";
-
-for (var i = 0; i < 25; i++) {
+var num_of_moods =9;
+for (var i = 1; i <= num_of_moods; i++) {
   var width = getRandomSize(200, 400);
   var height =  getRandomSize(200, 400);
-  allImages += '<img src="https://placekitten.com/'+width+'/'+height+'" alt="pretty kitty">';
+  //allImages +=  '<a href="default.asp"> <img src="https://placekitten.com/'+width+'/'+height+'" alt="pretty kitty"> </a>';
+  allImages +=  '<a href="default.asp"> <img src="assets/'+i+'.jpeg" alt="pretty kitty"> </a>';
+
 }
 console.log("sssss2222ss")
 $('#photos').append(allImages);

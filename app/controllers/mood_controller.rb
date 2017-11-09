@@ -43,7 +43,7 @@ class MoodController < ApplicationController
         end
       end
     end
-    redirect_to meet_index_path
+    redirect_to matchh_index_path
   end
 
 end
