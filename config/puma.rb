@@ -42,6 +42,8 @@ environment ENV.fetch("RAILS_ENV") { "development" }
 # on_worker_boot do
 #   ActiveRecord::Base.establish_connection if defined?(ActiveRecord)
 # end
-
+#Changes by Ishani to bind myapp to puma-trial
+bind "unix:///var/run/puma/my_app.sock"
+pidfile "/var/run/puma/my_app.sock"
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart
