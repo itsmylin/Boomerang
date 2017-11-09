@@ -1,30 +1,12 @@
-
-
-
- <!-- <%# @interestChunks.each do |chunk| %> -->
-
-
-
-
+<!-- <%# @interestChunks.each do |chunk| %> -->
 <section id="photos" style="margin-top:0;">
-</section>
-<%= javascript_include_tag 'page_specific/mood.js'%>
-
 <% @interestList.each do |interest| %>
-
-<div class="col">
-  <div id="body" class="square">
-    <div class="content">
-                <%= button_to  interest.name, { :controller => "mood", :action => "create", :interest_id=>  interest.id},
-                                                :method=>:post ,
-                                                :class=> "content",
-                                                :style => "width:100%;color:white;text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black",
-                                                :id =>  interest.name
-                %>
-  </div>
-</div>
-</div>
+      <%= link_to image_tag(interest.name+".jpeg", :class => "photos"), { :controller => "mood", :action => "create", :interest_id=>  interest.id},
+                                      :method=>:post ,
+                                      :class=> "photos",
+                                      :id =>  interest.name
+      %>
 <% end %>
+</section>
 
-<br><br>
-<p> <%= link_to 'Current Users:', users_path %> <%= User.count %></p>
+  <p> <%= link_to 'Current Users:', users_path %> <%= User.count %></p>

@@ -1,17 +1,44 @@
-<br><br><br>
-Need to be rewritten from the scratch :/
-<div class="container" style="margin-bottom:-45px">
-  <div class="row">
-    <div class="column" >
-      <table class="table">
-       <tbody>
-          <% @users.each do |user| %>
-            <tr>
-              <%= render user %>
-            </tr>
-          <% end %>
-         </tbody>
-       </table>
-    </div>
+
+<div class="center">
+  <div class="card-center" id="content">
+    <% if @users != nil %>
+      <% @users.each_with_index do |user, index| %>
+        <% if user.avatar? %>
+          <div class="card-img" data-id="<%= user.id %>" style="background-image: url(<%= user.avatar.url(:medium) %>);">
+            <div class="user-name">
+              <%= user.name  %>
+            </div>
+          </div>
+        <% else %>
+          <div class="card-img" data-id="<%= user.id %>" style="background-image: url(<%= asset_path 'default_profile_image.png' %>);">
+            <div class="user-name">
+              <%= user.name %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% else %>
+      <div class="no-user">
+        No user found!
+      </div>
+    <% end %>
+
   </div>
+  <% if session[:interest_id] != nil && user_signed_in? %>
+    <div class="btn">
+      <button class="btn btn-primary" id="like" data-session="<%= current_user[:id]%>" data-session2="<%= session[:interest_id]%>" >Like</button>
+      <button class="btn btn-danger" id="dislike" data-session="<%= current_user[:id]%>">Dislike</button>
+    </div>
+  <% elsif session[:interest_id] != nil && !user_signed_in? %>
+    <div class="btn">
+      <%= link_to 'Like', new_user_session_path, class: "btn btn-primary" %>
+      <%= link_to 'Dislike', new_user_session_path, class: "btn btn-danger" %>
+    </div>
+  <% else %>
+      <%= link_to 'Like', mood_index_path, class: "btn btn-primary" %>
+      <%= link_to 'Dislike', mood_index_path, class: "btn btn-danger" %>
+  <% end %>
 </div>
+
+
+<%= javascript_include_tag 'page_specific/match.js' %>
