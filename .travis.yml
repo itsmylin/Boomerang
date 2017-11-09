@@ -1,6 +1,11 @@
 language: ruby
+
+services:
+  -postgresql
+
 before_install:
 before_script:
   - bundle install --path vendor/cache
+  - cp config/database.yml.travis config/database.yml
 rvm:
     - 2.4.1
