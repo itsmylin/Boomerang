@@ -2,7 +2,7 @@ require 'json'
 
 class MeetController < ApplicationController
 	def index
-        
+
 		if params[:id]!=nil
             puts 'Are v ready to get data '
             @sqlQuery='select * from user_user_mappings where id ='+params[:id];
@@ -10,7 +10,7 @@ class MeetController < ApplicationController
     		@inboxMsgs = execute_sql_statement_direct(@sqlQuery)
     		@inboxMsgs.each do |mssg|
             puts 'I am populating my json with the values'
-            
+
             end
 		end
 
@@ -25,33 +25,24 @@ class MeetController < ApplicationController
             @matchedUsers = hash_response['entries']
 	end
 
-    def updateResponse()
+    def updateResponse
         puts 'I am inside update Response'
         @fromUser=params[:primuser];
         @toUser=params[:secuser];
+        @interestID = params[:interestID]
         @response=params[ :response];
         @presUserData=UserUserMapping.find_by primeUserID: @fromUser
         @secUserData=UserUserMapping.find_by primeUserID: @toUser
 
-
-
-        if @presUserData == nil
-            puts 'Present User data not there'
-            @insertPresUser='INSERT INTO user_user_mappings VALUES ('+@fromUser+','+@fromUser+',"dehwfg ",current_timestamp,current_timestamp," "," "," "," ")';
-            puts @insertPresUser
-            @inboxMsgsInsertPres = execute_sql_statement_direct(@insertPresUser)
-        end
-
-        if @secUserData == nil
-            puts 'Secondary User data not there'
-            @insertSecUser='INSERT INTO user_user_mappings VALUES ('+@toUser+','+@toUser+'," ",current_timestamp,current_timestamp," "," "," "," ")';
-            puts @insertSecUser
-            @inboxMsgsInsertSec = execute_sql_statement_direct(@insertSecUser)
-        end
-
         puts @presUserData.inspect
         puts @secUserData.inspect
-        
+        # if @presUserData == nil
+        #     @preUserData = UserUserMapping.create(primeUserID: @fromUser, timeslot: '', sent: '', received: '', completematch: '', nomatch: '')
+        # end
+        # if @secUserdData == nil
+        #     @secUserData = UserUserMapping.create(primeUserID: @toUser, timeslot: '', sent: '', received: '', completematch: '', nomatch: '')
+        # end
+
         #puts 'I am printing all the incoeming values'
         #puts @fromUser
         #puts @toUser
@@ -64,7 +55,7 @@ class MeetController < ApplicationController
                 puts 'secUserData is nill'
             end
 
-        
+
         @secUserReject=(@secUserData["nomatch"]).split(',')
        # puts 'list of users rejected by sec User '+ @secUserReject
         @secUserLiked=(@secUserData["sent"]).split(',')
@@ -75,10 +66,10 @@ class MeetController < ApplicationController
                 @presUserNoMatchData=@presUserNoMatchDataArr.join(',')
                 puts 'presUserNoMatchData'+ @presUserNoMatchData
                 UserUserMapping.where( primeUserID: @fromUser ).update_all( nomatch: @presUserNoMatchData )
-            
+
 
             elsif(@secUserLiked.include? @fromUser) #Already Yes from secUser
-                    #remove 
+                    #remove
                     #
                     @presUserPrfctMatchDataArr=(@presUserData["completematch"]).split(',')
                     @presUserPrfctMatchDataArr=@presUserPrfctMatchDataArr.push(@toUser)
@@ -96,13 +87,13 @@ class MeetController < ApplicationController
 
 
             else
-                
+
                 @presUserSentArr=(@presUserData["sent"]).split(',')
                 @presUserSentArr=@presUserSentArr.push(@toUser)
                 @presUserSent=@presUserSentArr.join(',')
                 UserUserMapping.where( primeUserID: @fromUser ).update_all( sent: @presUserSent )
 
-        
+
                 @secUserRcvArr=(@secUserData["received"]).split(',')
                 @secUserRcvArr=@secUserRcvArr.push(@fromUser)
                 @secUserRcv=@secUserRcvArr.join(',')
@@ -116,7 +107,7 @@ class MeetController < ApplicationController
             @primUserNoMatchDataArr= @primUserNoMatchDataArr.push(@toUser)
             @primUserNoMatchData=@primUserNoMatchDataArr.join(',')
             UserUserMapping.where( primeUserID: @fromUser ).update_all(nomatch: @primUserNoMatchData)
-            
+
             #updating the secondary user no match
             @secUserNoMatchDataArr= (@secUserData["nomatch"]).split(',')
             @secUserNoMatchDataArr= @secUserNoMatchDataArr.push(@fromUser)
@@ -126,7 +117,7 @@ class MeetController < ApplicationController
             @secUserLikedArr=(@secUserData["sent"].split(','))
             if(@secUserLikedArr.include? @fromUser)
                 #removing from sec liked as prim has said no
-                
+
                 @secUserLikedArr=@secUserLikedArr-[@fromUser]
                 @secUserLikedData=@secUserLikedArr.join(',')
                 UserUserMapping.where( primeUserID: @toUser).update_all(sent: @secUserLikedData)
@@ -136,12 +127,36 @@ class MeetController < ApplicationController
                 @primUserBeingLikedArr=@primUserBeingLikedArr-[@toUser]
                 @primUserBeingLiked=@primUserBeingLikedArr.join(',')
                 UserUserMapping.where( primeUserID: @fromUser).update_all(received: @primUserBeingLiked)
-            
+
             end
         #user-user mapping
         else
          puts 'Some Issue'
-       end
+        end
+        @userInterestMapping = UserInterestMapping.where(interestID: @interestID).where.not(userID: @fromUser).order("RANDOM()")
+        @user = []
+        if @userInterestMapping != nil
+            @uumap = UserUserMapping.find_by_primeUserID(@fromUser)
+            @sentList = @uumap["sent"].split(',')
+            @completematchList = @uumap["completematch"].split(',')
+            @nomatchList = @uumap["nomatch"].split(',')
+            @userInterestMapping.each do |map|
+                unless @sentList.include?(map.userID) || @nomatchList.include?(map.userID) || @completematchList.include?(map.userID)
+                    @user << User.find(map.userID)
+                end
+                break if @user.length == 1
+            end
+        end
+        puts @user.inspect
+        if @user != []
+            msg = { :status => "true", :message => "Success!", :data => @user }
+        else
+            msg = { :status => "false", :message => "No user found!", :data => @user }
+        end
+        respond_to do |format|
+            format.json  { render :json => msg } # don't do msg.to_json
+        end
+
 
     end
 	def execute_sql_statement_direct(sql)
