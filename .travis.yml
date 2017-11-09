@@ -6,6 +6,6 @@ services:
 before_install:
 before_script:
   - bundle install --path vendor/cache
-  - - psql -c 'create database db/test_pg;' -U postgres
+  - psql -c 'create database db/test_pg;' -U postgres
 rvm:
     - 2.4.1
