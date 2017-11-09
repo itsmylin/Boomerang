@@ -2,7 +2,7 @@
 <div class="center">
   <h2>Meet</h2>
   <div class="card-center" id="content">
-    <% if @users %>
+    <% if @users != nil %>
       <% @users.each_with_index do |user, index| %>
         <% if user.avatar? %>
           <div class="card-img" data-id="<%= user.id %>" style="background-image: url(<%= user.avatar.url(:medium) %>);">
@@ -19,10 +19,11 @@
         <% end %>
       <% end %>
     <% else %>
-      <div class="user">
-        No user here!
+      <div class="no-user">
+        No user found!
       </div>
     <% end %>
+
   </div>
   <% if session[:interest_id] != nil && user_signed_in? %>
     <div class="btn">

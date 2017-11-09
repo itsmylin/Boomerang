@@ -29,20 +29,19 @@ class MatchController < ApplicationController
         puts 'I am inside update Response'
         @fromUser=params[:primuser];
         @toUser=params[:secuser];
+        @interestID = params[:interestID]
         @response=params[ :response];
         @presUserData=UserUserMapping.find_by primeUserID: @fromUser
         @secUserData=UserUserMapping.find_by primeUserID: @toUser
 
         puts @presUserData.inspect
         puts @secUserData.inspect
-        if @presUserData == nil
-            @preUserData = UserUserMapping.create(primeUserID: @fromUser, timeslot: '')
-        end
-        if @secUserdData == nil
-            @secUserData = UserUserMapping.create(primeUserID: @toUser, timeslot: '')
-        end
-        puts @presUserData.inspect
-        puts @secUserData.inspect
+        # if @presUserData == nil
+        #     @preUserData = UserUserMapping.create(primeUserID: @fromUser, timeslot: '', sent: '', received: '', completematch: '', nomatch: '')
+        # end
+        # if @secUserdData == nil
+        #     @secUserData = UserUserMapping.create(primeUserID: @toUser, timeslot: '', sent: '', received: '', completematch: '', nomatch: '')
+        # end
 
         #puts 'I am printing all the incoeming values'
         #puts @fromUser
@@ -133,11 +132,28 @@ class MatchController < ApplicationController
         #user-user mapping
         else
          puts 'Some Issue'
-       end
-       @userInterestMapping = UserInterestMapping.where(interestID: session[:interest_id]).where.not(userID: current_user[:id]).order("RANDOM()").limit(1)
-       @users = User.find(@userInterestMapping.userID);
+        end
+        @userInterestMapping = UserInterestMapping.where(interestID: @interestID).where.not(userID: @fromUser).order("RANDOM()")
+        @user = []
+        if @userInterestMapping != nil
+            @uumap = UserUserMapping.find_by_primeUserID(@fromUser)
+            @sentList = @uumap["sent"].split(',')
+            @completematchList = @uumap["completematch"].split(',')
+            @nomatchList = @uumap["nomatch"].split(',')
+            @userInterestMapping.each do |map|
+                unless @sentList.include?(map.userID) || @nomatchList.include?(map.userID) || @completematchList.include?(map.userID)
+                    @user << User.find(map.userID)
+                end
+                break if @user.length == 1
+            end
+        end
+        puts @user.inspect
+        if @user != []
+            msg = { :status => "true", :message => "Success!", :data => @user }
+        else 
+            msg = { :status => "false", :message => "No user found!", :data => @user }
+        end
         respond_to do |format|
-            msg = { :status => "ok", :message => "Success!", :data => @user }
             format.json  { render :json => msg } # don't do msg.to_json
         end
         

@@ -37,7 +37,21 @@
     max-width: 100%;
     background-size: cover;
 }
-
+.no-user {
+    @extend .img-responsive;
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 8px;
+    float:left;
+    text-align: center;
+    height: 300px;
+    width: 300px;
+    max-width: 100%;
+    background-size: cover;
+}
 @media only screen and (max-width: 768px){
     .card-img { width: 100%; }
 }

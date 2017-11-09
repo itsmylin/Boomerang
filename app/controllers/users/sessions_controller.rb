@@ -34,6 +34,11 @@ class Users::SessionsController < Devise::SessionsController
     else
       super
     end
+    @user = User.find_by email: params[:user][:email]
+    @userData=UserUserMapping.find_by primeUserID: @user.id
+    if @userData == nil
+      @createUser = UserUserMapping.create(primeUserID: @user.id, timeslot: "", sent: "", received: "", completematch: "", nomatch: "")
+    end
   end
 
   # DELETE /resource/sign_out

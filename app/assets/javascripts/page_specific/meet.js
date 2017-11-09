@@ -28,8 +28,11 @@ this.paintIt = function(element, backgroundColor, textColor) {
         success: function(data, textStatus, jqXHR) {
             $('#content > div:last').remove();
             console.log(data);
-            $('.card-center').append(`<div class="card-img" data-id="<%= ${data.data.id} %>" style="background-image: url(<%= ${data.data}.avatar.url(:medium) %>);"><div class="user-name"><%= ${data.data}.name  %></div></div>`)
-
+            if(data["status"]=="true"){
+              $('.card-center').prepend(`<div class="card-img" data-id="${data["data"]["0"].id}" style="background-image: url('http://p3.ifengimg.com/a/2016_52/67639375285aaf5_size722_w1315_h876.jpg');"><div class="user-name"> ${data["data"]["0"].name} </div></div>`)
+            } else {
+              $('.card-center').prepend("<div class='no-user'>No user found</div>")
+            }
         }
       });
     }
@@ -40,32 +43,35 @@ this.paintIt = function(element, backgroundColor, textColor) {
   });
 
   $('#dislike').on('click',function() {
-    if($('.card-img').length>0){
-      $.ajax({
-        url: "/matchUpdate",
-        type: "POST",
-        data: {
-        primuser: $('#like').data('session'),
-        secuser: $('#content > div:last').data('id'),
-        interestID: $('#like').data('session2'),
-        response: 'N'
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            return alert(textStatus);
+      if($('.card-img').length>0){
+        $.ajax({
+          url: "/matchUpdate",
+          type: "POST",
+          data: {
+          primuser: $('#like').data('session'),
+          secuser: $('#content > div:last').data('id'),
+          interestID: $('#like').data('session2'),
+          response: 'N'
+          },
+          error: function(jqXHR, textStatus, errorThrown) {
+            alert(textStatus);
             $('#content > div:last').remove();
-        },
-        success: function(data, textStatus, jqXHR) {
-            $('#content > div:last').remove();
-            console.log(data);
-            $('.card-center').append(`<div class="card-img" data-id="<%= ${data.data.id} %>" style="background-image: url(<%= ${data.data}.avatar.url(:medium) %>);"><div class="user-name"><%= ${data.data}.name  %></div></div>`)
-
-        }
-      });
-    }
-    if($('.card-img').length == 0) {
-      $('#content > div:last').remove();
-      $('.card-center').append("<div class='no-user'>No user found</div>")
-    }
+          },
+          success: function(data, textStatus, jqXHR) {
+              $('#content > div:last').remove();
+              console.log(data);
+              if(data["status"]=="true"){
+                $('.card-center').prepend(`<div class="card-img" data-id="${data["data"]["0"].id}" style="background-image: url('http://p3.ifengimg.com/a/2016_52/67639375285aaf5_size722_w1315_h876.jpg');"><div class="user-name"> ${data["data"]["0"].name} </div></div>`)
+              } else {
+                $('.card-center').prepend("<div class='no-user'>No user found</div>")
+              }
+          }
+        });
+      }
+      if($('.card-img').length == 0) {
+        $('#content > div:last').remove();
+        $('.card-center').append("<div class='no-user'>No user found</div>")
+      }
   });
   
   }).call(this);

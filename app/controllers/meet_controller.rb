@@ -2,28 +2,37 @@ class MeetController < ApplicationController
   def index
     set_interestID
     if session[:interest_id] != nil && user_signed_in?
-      @userInterestMapping = UserInterestMapping.where(interestID: session[:interest_id]).where.not(userID: current_user[:id]).order("RANDOM()").limit(3)
+      @userInterestMapping = UserInterestMapping.where(interestID: session[:interest_id]).where.not(userID: current_user[:id]).order("RANDOM()")
     elsif session[:interest_id] != nil && !user_signed_in?
       @userInterestMapping = UserInterestMapping.where(interestID: session[:interest_id]).order("RANDOM()").limit(3)
     else
       @userInterestMapping = UserInterestMapping.all.order("RANDOM()").limit(3)
     end
-    #@userInterestMappingList = User.all
     @users = []
-    # @userInterestMappingList.each do |map|
-    #   @maps <<  { id: User.find(map.userID) , interest: Interest.find(map.interestID) }
-    # end
+
     if @userInterestMapping != nil
-      @userInterestMapping.each do |map|
-        @users <<  User.find(map.userID)
+      if session[:interest_id] != nil && user_signed_in?
+        @uumap = UserUserMapping.find_by_primeUserID(current_user[:id])
+        puts @uumap.inspect
+        @sentList =  @uumap["sent"].split(',')
+        @completematchList =  @uumap["completematch"].split(',')
+        @nomatchList =  @uumap["nomatch"].split(',')
+        @userInterestMapping.each do |map|
+          unless @sentList.include?(map.userID) || @nomatchList.include?(map.userID) || @completematchList.include?(map.userID)
+              @users << User.find(map.userID)
+          end
+          break if @users.length == 3
+        end
+      else
+        @userInterestMapping.each do |map|
+          @users <<  User.find(map.userID)
+        end
       end
     else
       @users = nil
     end
-    session[:users] = @users
+
     puts @users
-    puts 'asdasda'
-    puts session[:users].inspect
     #@userInterestMappingList = User.all
 
     # @userInterestMappingList.each do |map|
