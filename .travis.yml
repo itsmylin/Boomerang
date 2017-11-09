@@ -1,5 +1,6 @@
 language: ruby
+before_install:
+before_script:
+  - bundle install --path vendor/cache
 rvm:
- - 2.2
- - jruby
- - rbx-3
+    - 2.4.1
