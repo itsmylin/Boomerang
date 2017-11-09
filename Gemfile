@@ -9,6 +9,8 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'pg','~>0.20.0'
+gem 'paperclip', '~> 4.1'
+
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'paperclip', '~> 4.1'
