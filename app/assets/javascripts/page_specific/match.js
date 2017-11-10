@@ -61,7 +61,7 @@ this.paintIt = function(element, backgroundColor, textColor) {
               $('#content > div:last').remove();
               console.log(data);
               if(data["status"]=="true"){
-                $('.card-center').prepend(`<div class="card-img" data-id="${data["data"]["0"].id}" style="background-image: url('http://p3.ifengimg.com/a/2016_52/67639375285aaf5_size722_w1315_h876.jpg');"><div class="user-name"> ${data["data"]["0"].name} </div></div>`)
+                $('.card-center').prepend('<div class="card-img" data-id="'+ data["data"]["0"].id+ '"'+ 'style="background-image:url()"><div class="user-name">' + data["data"]["0"].name +'</div></div>')
               } else {
                 $('.card-center').prepend("<div class='no-user'>No user found</div>")
               }
