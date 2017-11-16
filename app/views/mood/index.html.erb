@@ -1,7 +1,7 @@
 <!-- <%# @interestChunks.each do |chunk| %> -->
 <section id="photos" style="margin-top:0;">
 <% @interestList.each do |interest| %>
-      <%= link_to image_tag(interest.name+".jpeg", :class => "photos"), { :controller => "mood", :action => "create", :interest_id=>  interest.id},
+      <%= link_to image_tag( asset_path(interest.name+".jpeg"), :class => "photos"), { :controller => "mood", :action => "create", :interest_id=>  interest.id},
                                       :method=>:post ,
                                       :class=> "photos",
                                       :id =>  interest.name

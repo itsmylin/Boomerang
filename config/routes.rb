@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :users
   get 'meet/:id', to: 'meet#index'
 
-  post 'meetUpdate', to:'meet#updateResponse'
+  post 'match/update', to:'match#updateResponse'
 
   resources :users do
     post 'notify', :on => :collection

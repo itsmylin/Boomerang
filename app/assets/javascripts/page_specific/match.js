@@ -2,37 +2,46 @@
 // All this logic will automatically be available in application.js.
 // You can use CoffeeScript in this file: http://coffeescript.org/
 
-this.paintIt = function(element, backgroundColor, textColor) {
-  element.style.backgroundColor = backgroundColor;
-  if (textColor != null) {
-    return element.style.color = textColor;
-  }
-};
-
 (function() {
+// for like ajax
   $('#like').on('click',function() {
     if($('.card-img').length>0){
+      console.log($('.card-img').length)
+      var existedID;
+      switch($('.card-img').length){
+        case 3:
+          existedID = [$('#content > div:first').data('id'),$('#content > div:first').next().data('id')];
+          break;
+        case 2:
+          existedID = [$('#content > div:first').data('id')];
+          break;
+        default:
+          existedID = []
+      }
       $.ajax({
-        url: "/meetUpdate",
+        url: "/match/update",
         type: "POST",
         data: {
         primuser: $('#like').data('session'),
         secuser: $('#content > div:last').data('id'),
         interestID: $('#like').data('session2'),
+        existedID: existedID,
         response: 'Y'
         },
         error: function(jqXHR, textStatus, errorThrown) {
           alert(textStatus);
-          $('#content > div:last').remove();
         },
         success: function(data, textStatus, jqXHR) {
-            $('#content > div:last').remove();
-            console.log(data);
-            if(data["status"]=="true"){
-              $('.card-center').prepend('<div class="card-img" data-id="'+ data["data"]["0"].id+ '"'+ 'style="background-image:url()"><div class="user-name">' + data["data"]["0"].name +'</div></div>')
+          $('#content > div:last').remove();
+          if(data["status"]=="true"){
+            if(data["data"]["0"].avatar_file_name != null){
+              $('.card-center').prepend('<div class="card-img" data-id="'+ data["data"]["0"].id+ '"'+ 'style="background-image:url('+ data["data"]["1"] + ')">' + '<div class="user-name">' + data["data"]["0"].name +'</div></div>');
             } else {
-              $('.card-center').prepend("<div class='no-user'>No user found</div>")
+              $('.card-center').prepend('<div class="card-img" data-id="'+ data["data"]["0"].id+ '"'+ 'style="background-image:url(/assets/default_profile_image.png)"><div class="user-name">' + data["data"]["0"].name +'</div></div>');
             }
+          } else {
+            return;
+          }
         }
       });
     }
@@ -41,30 +50,46 @@ this.paintIt = function(element, backgroundColor, textColor) {
       $('.card-center').append("<div class='no-user'>No user found</div>")
     }
   });
-
+//  for the dislike ajax
   $('#dislike').on('click',function() {
       if($('.card-img').length>0){
+        console.log($('.card-img').length)
+        var existedID;
+        switch($('.card-img').length){
+          case 3:
+            existedID = [$('#content > div:first').data('id'),$('#content > div:first').next().data('id')];
+            break;
+          case 2:
+            existedID = [$('#content > div:first').data('id')];
+            break;
+          default:
+            existedID = []
+        }
         $.ajax({
-          url: "/meetUpdate",
+          url: "/match/update",
           type: "POST",
           data: {
           primuser: $('#like').data('session'),
           secuser: $('#content > div:last').data('id'),
           interestID: $('#like').data('session2'),
+          existedID: existedID,
           response: 'N'
           },
           error: function(jqXHR, textStatus, errorThrown) {
             alert(textStatus);
-            $('#content > div:last').remove();
           },
           success: function(data, textStatus, jqXHR) {
-              $('#content > div:last').remove();
-              console.log(data);
-              if(data["status"]=="true"){
-                $('.card-center').prepend('<div class="card-img" data-id="'+ data["data"]["0"].id+ '"'+ 'style="background-image:url()"><div class="user-name">' + data["data"]["0"].name +'</div></div>')
+            $('#content > div:last').remove();
+            console.log(data);
+            if(data["status"]=="true"){
+              if(data["data"]["0"].avatar_file_name != null ){
+                $('.card-center').prepend('<div class="card-img" data-id="'+ data["data"]["0"].id+ '"'+ 'style="background-image:url('+ data["data"][1] + ')">' + '<div class="user-name">' + data["data"]["0"].name +'</div></div>');
               } else {
-                $('.card-center').prepend("<div class='no-user'>No user found</div>")
+                $('.card-center').prepend('<div class="card-img" data-id="'+ data["data"]["0"].id+ '"'+ 'style="background-image:url(/assets/default_profile_image.png)"><div class="user-name">' + data["data"]["0"].name +'</div></div>');
               }
+            } else {
+              return;
+            }
           }
         });
       }
