@@ -1,12 +1,59 @@
 <!-- <%# @interestChunks.each do |chunk| %> -->
-<section id="photos" style="margin-top:0;">
-<% @interestList.each do |interest| %>
-      <%= link_to image_tag( asset_path(interest.name+".jpeg"), :class => "photos"), { :controller => "mood", :action => "create", :interest_id=>  interest.id},
+<section id="" style="margin-top:0;"> <!--id ==> photos -->
+  <% @interestList.each do |interest| %>
+    <br>
+    <div class="column">
+    <div class="demo-title"></div>
+    <!-- Post-->
+    <div class="post-module">
+      <!-- Thumbnail-->
+      <div class="thumbnail">
+        <div class="date">
+          <div class="day">27</div>
+          <div class="month">Mar</div>
+        </div>
+        <%= link_to image_tag(interest.name+".jpeg", :id => "photos"), { :controller => "mood", :action => "create", :interest_id=>  interest.id},
                                       :method=>:post ,
-                                      :class=> "photos",
+                                      :id=> "photos",
                                       :id =>  interest.name
-      %>
-<% end %>
-</section>
+        %>
+      </div>
+      <!-- Post Content-->
+      <div class="post-content">
+        <div class="category">Karma: 8.7</div>
+        <h1 class="title"><%=interest.name%></h1>
+        <h2 class="sub_title">I hate eating alone 🔥</h2>
+        <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
+        <div class="post-meta"><span class="timestamp"><i class="fa fa-clock-">view</i> map </span><span class="comments"><i class="fa fa-comments"></i><a href="#"> 3299 matches</a></span></div>
+      </div>
+    </div>
+  </div>
 
-  <p> <%= link_to 'Current Users:', users_path %> <%= User.count %></p>
+  <% end %>
+</section>
+<script src="/vendor/assets/javascripts/jquery.min.js"></script>
+<script src="mood.js"></script>
+
+<div class="column">
+  <div class="demo-title"></div>
+  <!-- Post-->
+  <div class="post-module">
+    <!-- Thumbnail-->
+    <div class="thumbnail">
+      <div class="date">
+        <div class="day">27</div>
+        <div class="month">Mar</div>
+      </div><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg"/>
+    </div>
+    <!-- Post Content-->
+    <div class="post-content">
+      <div class="category">Photos</div>
+      <h1 class="title">City Lights in New York</h1>
+      <h2 class="sub_title">The city that never sleeps.</h2>
+      <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
+      <div class="post-meta"><span class="timestamp"><i class="fa fa-clock-">o</i> 6 mins ago</span><span class="comments"><i class="fa fa-comments"></i><a href="#"> 39 comments</a></span></div>
+    </div>
+  </div>
+</div>
+
+<p> <%= link_to 'Current Users:', users_path %> <%= User.count %></p>
