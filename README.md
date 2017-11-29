@@ -1,29 +1,18 @@
 Boomerang -- find people in the same mood real-time 🔥!
-![Boomerang](http://www.clker.com/cliparts/0/o/J/F/a/j/chocolate-boomerang.svg) 
------------------------------------------------------------------------
-User Stories:
+A real-time social networking app based on users' location and interests.
+![Boomerang](http://www.clker.com/cliparts/0/o/J/F/a/j/chocolate-boomerang.svg =250x) 
 
-https://docs.google.com/document/d/1EfQVHJflRuYDxEyakwVnhzW17Q_c5-_Ih5afBMELL9Q/edit?usp=sharing
+## Team
+| ![Ali Abbasinasab](https://media.licdn.com/media/p/7/005/03f/3b1/0ea3675.jpg) 
+| ![Ishani Gupta](/ishani.jpg?raw=true) 
+| ![Ming-Yu Lin](/Mingyu.jpg?raw=true) 
+| ![Daniel Means](/Daniel.jpg?raw=true) 
+| ![Lei Xu](/Lei.jpg?raw=true)
+| :------------: | :------------: | :------------: | :------------: | :------------: | 
+| Ali Abbasinasab | Ishani Gupta | Ming-Yu Lin | Daniel Means | Lei Xu
+| [@abbasinasab](https://github.com/abbasinasab) | [@ishaniGupta27](https://github.com/ishaniGupta27) | [@itsmylin](https://github.com/itsmylin) | [@danielmeans](https://github.com/danielmeans) | [@xuleidawang](https://github.com/xuleidawang)
 
------------------------------------------------------------------------
-Group Members:
 
-Ali: test
-Ali: test2
-
-Daniel Means
-![Alt text](/Daniel.jpg?raw=true)
-
-Ming-Yu Lin
-![Alt text](/Mingyu.jpg?raw=true)
-
-Lei Xu
-![Alt text](/Lei.jpg?raw=true)
-
-Ishani
-![Alt text](/ishani.jpg?raw=true)
-
-Ali Abbasinasab
 
 
 
