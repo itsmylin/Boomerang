@@ -1,5 +1,5 @@
 Boomerang -- find people in the same mood real-time 🔥!
-![Boomerang](http://www.clker.com/cliparts/0/o/J/F/a/j/chocolate-boomerang.svg?raw=true) 
+![Boomerang](http://www.clker.com/cliparts/0/o/J/F/a/j/chocolate-boomerang.svg) 
 -----------------------------------------------------------------------
 User Stories:
 
