@@ -1,6 +1,5 @@
-Boomerang
-
-A real-time social networking app based on Interests.
+Boomerang -- find people in the same mood real-time 🔥!
+![Boomerang](http://www.clker.com/cliparts/0/o/J/F/a/j/chocolate-boomerang.svg?raw=true) 
 -----------------------------------------------------------------------
 User Stories:
 
