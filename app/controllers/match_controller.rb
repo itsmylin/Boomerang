@@ -33,12 +33,11 @@ class MatchController < ApplicationController
   end
 
   def updateResponse
-    @params = response_params
-    @fromUser= @params[:primuser]
-    @toUser= @params[:secuser]
-    @interestID = @params[:interestID]
-    @existedID = @params[:existedID]
-    @response= @params[:response]
+    @fromUser= params[:primuser]
+    @toUser= params[:secuser]
+    @interestID = params[:interestID]
+    @existedID = params[:existedID]
+    @response= params[:response]
     @presUserData = UserUserMapping.find_by primeUserID: @fromUser
     @secUserData = UserUserMapping.find_by primeUserID: @toUser
 
@@ -158,10 +157,4 @@ class MatchController < ApplicationController
     end
   end
 
-  def response_params
-    puts(params)
-    params.require(:response).permit(:primuser, :secuser,
-                                     :interestID, :response,
-                                     :existedID => [])
-  end
 end

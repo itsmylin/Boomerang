@@ -20,13 +20,12 @@
       $.ajax({
         url: "/match/update",
         type: "POST",
-        data: { response: {
-            primuser: $('#like').data('session'),
-            secuser: $('#content > div:last').data('id'),
-            interestID: $('#like').data('session2'),
-            existedID: existedID,
-            response: 'Y'
-          }
+        data: { 
+          primuser: $('#like').data('session'),
+          secuser: $('#content > div:last').data('id'),
+          interestID: $('#like').data('session2'),
+          existedID: existedID,
+          response: 'Y'
         },
         error: function(jqXHR, textStatus, errorThrown) {
           alert(textStatus);
@@ -67,13 +66,12 @@
         $.ajax({
           url: "/match/update",
           type: "POST",
-          data: { response: {
-              primuser: $('#like').data('session'),
-              secuser: $('#content > div:last').data('id'),
-              interestID: $('#like').data('session2'),
-              existedID: existedID,
-              response: 'N'
-            }
+          data: { 
+            primuser: $('#like').data('session'),
+            secuser: $('#content > div:last').data('id'),
+            interestID: $('#like').data('session2'),
+            existedID: existedID,
+            response: 'N'
           },
           error: function(jqXHR, textStatus, errorThrown) {
             alert(textStatus);
