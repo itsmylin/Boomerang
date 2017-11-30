@@ -17,8 +17,17 @@ class MeetController < ApplicationController
             @presUserCompleteMatch=(@inboxMsgs["completematch"]).split(',')
             #@presUserReceivedInbox=UserUserMapping.select('received').find_by primeUserID: params[:id].split(',')
             #@presUserCompleteMatch=UserUserMapping.select('completematch').find_by primeUserID: params[:id].split(',')
-            puts @presUserReceivedInbox
-            puts @presUserCompleteMatch
+            #puts @presUserReceivedInbox
+            #puts @presUserCompleteMatch
+
+            @totalItems=@presUserReceivedInbox.length + @presUserCompleteMatch.length
+
+            puts @totalItems
+
+            @totalpages= (@totalItems/10)+1;
+            puts 'Total pages'
+            puts @totalpages
+
             json_response = '{"entries":[{"personid":"Dummy","type":"match"}]}'
             hash_response = JSON.parse(json_response)
             @presUserReceivedInbox.first(10).each do |rcvd_val|
