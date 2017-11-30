@@ -20,11 +20,11 @@ class MeetController < ApplicationController
             puts @presUserCompleteMatch
             json_response = '{"entries":[{"personid":"Dummy","type":"match"}]}'
             hash_response = JSON.parse(json_response)
-            @presUserReceivedInbox.limit(10).each do |rcvd_val|
+            @presUserReceivedInbox.first(10).each do |rcvd_val|
                 hash_response['entries'].push({"personid"=>rcvd_val,"type"=>'rcvd'})
                 
             end
-            @presUserCompleteMatch.limit(10).each do |match_val|
+            @presUserCompleteMatch.first(10).each do |match_val|
                 hash_response['entries'].push({"personid"=>match_val,"type"=>'match'})
                 
             end
