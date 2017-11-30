@@ -3,10 +3,11 @@ require 'json'
 class MeetController < ApplicationController
 	def index
         puts 'I am telling you the id'
-        puts params[:id]
-		if params[:id]!=nil
+        #puts params[:id]
+        puts current_user[:id]
+		if current_user[:id]!=nil
             puts 'Are v ready to get data '
-            @inboxMsgs=UserUserMapping.find_by primeUserID: params[:id]
+            @inboxMsgs=UserUserMapping.find_by primeUserID: current_user[:id]
             #puts @sqlQuery
     		#@inboxMsgs = execute_sql_statement_direct(@sqlQuery)
     		#@inboxMsgs.each do |mssg|
