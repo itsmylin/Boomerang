@@ -14,15 +14,17 @@ class MeetController < ApplicationController
             #puts @inboxMsgs.inspect
             @presUserReceivedInbox=(@inboxMsgs["received"]).split(',')
             @presUserCompleteMatch=(@inboxMsgs["completematch"]).split(',')
+            #@presUserReceivedInbox=UserUserMapping.select('received').find_by primeUserID: params[:id].split(',')
+            #@presUserCompleteMatch=UserUserMapping.select('completematch').find_by primeUserID: params[:id].split(',')
             puts @presUserReceivedInbox
             puts @presUserCompleteMatch
             json_response = '{"entries":[{"personid":"Dummy","type":"match"}]}'
             hash_response = JSON.parse(json_response)
-            @presUserReceivedInbox.each do |rcvd_val|
+            @presUserReceivedInbox.limit(10).each do |rcvd_val|
                 hash_response['entries'].push({"personid"=>rcvd_val,"type"=>'rcvd'})
                 
             end
-            @presUserCompleteMatch.each do |match_val|
+            @presUserCompleteMatch.limit(10).each do |match_val|
                 hash_response['entries'].push({"personid"=>match_val,"type"=>'match'})
                 
             end
