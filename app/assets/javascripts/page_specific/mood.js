@@ -1,7 +1,5 @@
-console.log("sssss")
 
-
-$(window).load(function() { console.log("wwwwwwww");
+$(window).load(function() { console.log("mood.js load");
   $('.post-module').hover(function() {
     $(this).find('.description').stop().animate({
       height: "toggle",
@@ -26,8 +24,5 @@ for (var i = 1; i <= num_of_moods; i++) {
   allImages +=  '<bkkutton name="action" value="blue"> <img src="assets/'+i+'.jpeg" alt="pretty kitty" style="margin:0; padding:0; width: 100%"> </button>';
 
 }
-
-
-console.log("sssss2222ss")
 
 $('#photos').append(allImages)
