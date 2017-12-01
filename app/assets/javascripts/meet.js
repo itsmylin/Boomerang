@@ -24,7 +24,7 @@
     //window.alert(totalItems)
     var x ="<ul class=\"pagination\">";     
       for (i = 1; i <= totalItems; i++) {
-        x=x+"<li><a href=\"#\">"+i+"</a></li>";
+        x=x+"<li><a href=\"../meet/pg"+i+"\">"+i+"</a></li>";
       }
 
     x=x+"</ul>";

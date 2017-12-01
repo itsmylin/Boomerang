@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :users
   get 'meet', to: 'meet#index'
 
+  get  'meet/:pgid',to: 'meet#index'
+
   post 'match/update', to:'match#updateResponse'
 
   resources :users do

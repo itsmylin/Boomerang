@@ -2,10 +2,11 @@ require 'json'
 
 class MeetController < ApplicationController
 	def index
-        puts 'I am telling you the id'
-        #puts params[:id]
+        puts 'I am telling you the id of param(this id for new feature pagination and not user) as well as user'
+        puts params[:pgid]
+        puts '######################'
         puts current_user[:id]
-		if current_user[:id]!=nil
+		if current_user[:id]!=nil 
             puts 'Are v ready to get data '
             @inboxMsgs=UserUserMapping.find_by primeUserID: current_user[:id]
             #puts @sqlQuery
@@ -30,17 +31,35 @@ class MeetController < ApplicationController
 
             json_response = '{"entries":[{"personid":"Dummy","type":"match"}]}'
             hash_response = JSON.parse(json_response)
-            @presUserReceivedInbox.first(10).each do |rcvd_val|
-                hash_response['entries'].push({"personid"=>rcvd_val,"type"=>'rcvd'})
-                
+
+            
+            if params[:pgid]==nil || params[:pgid] == "pg1"
+                @presUserReceivedInbox[0,10].each do |rcvd_val|
+                    hash_response['entries'].push({"personid"=>rcvd_val,"type"=>'rcvd'})
+                    
+                end
+                @presUserCompleteMatch[0,10].each do |match_val|
+                    hash_response['entries'].push({"personid"=>match_val,"type"=>'match'})
+                    
+                end
+                puts hash_response.inspect
+                @matchedUsers = hash_response['entries']
+            else
+                @askedPage=params[:pgid].split("pg")[1]
+                puts 'The asked page number is.........'
+                puts @askedPage
+                @strPoint= (10*(@askedPage.to_i-1))+1
+                @presUserReceivedInbox[@strPoint,10].each do |rcvd_val|
+                    hash_response['entries'].push({"personid"=>rcvd_val,"type"=>'rcvd'})
+                    
+                end
+                @presUserCompleteMatch[0,10].each do |match_val|
+                    hash_response['entries'].push({"personid"=>match_val,"type"=>'match'})
+                    
+                end
+                puts hash_response.inspect
+                @matchedUsers = hash_response['entries']
             end
-            @presUserCompleteMatch.first(10).each do |match_val|
-                hash_response['entries'].push({"personid"=>match_val,"type"=>'match'})
-                
-            end
-            puts hash_response.inspect
-            @matchedUsers = hash_response['entries']
-            #end
 		end
 
 		#puts 'Ishani Fake User?'
