@@ -29,3 +29,18 @@ Interest.create(name:'hiking',timeSlot: '1-5',location: 'Isla Vista',description
 Interest.create(name:'movies',timeSlot: '1-5',location: 'Isla Vista',description: 'blehh')
 
 UserInterestMapping.create(userID: '1', interestID: '2')
+
+1000.times do |i|
+    UserUserMapping.create(primeUserID: "#{i}", timeslot: "", sent: "", received: "", completematch: "", nomatch: "")
+end
+1000.times do |i|
+    user = User.new(
+        name:"#{i}",
+        email:"#{i}@domain.com",
+        password:'123456789',
+        password_confirmation:'123456789')
+    user.save!
+end
+1000.times do |i|
+        UserInterestMapping.create(userID: "#{i}", interestID: '2')
+end
