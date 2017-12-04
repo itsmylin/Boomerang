@@ -40,7 +40,10 @@ class MatchController < ApplicationController
     @response= params[:response]
     @presUserData = UserUserMapping.find_by primeUserID: @fromUser
     @secUserData = UserUserMapping.find_by primeUserID: @toUser
-
+    @presUserNoMatchDataSet=@presUserData["nomatch"].split(',').to_set
+    @presUserPrfctMatchDataSet=@presUserData["completematch"].split(',').to_set
+    @presUserSentSet=@presUserData["sent"].split(',').to_set
+    @presUserBeingLikedSet=@presUserData["received"].split(',').to_set
     if(@response == 'Y')
     #prim user is the logged in user whereas the sec user is the one abt whom the prim user is giving prefernce(yes/no)
     puts 'Inside response is Yes'
@@ -53,7 +56,7 @@ class MatchController < ApplicationController
       @secUserLiked=@secUserData["sent"].split(',')
       # puts 'list of users liked by sec user '+ @secUserLiked
       if(@secUserReject.include? @fromUser) #Already No from secUSer
-          @presUserNoMatchDataSet=@presUserData["nomatch"].split(',').to_set
+
           @presUserNoMatchDataSet=@presUserNoMatchDataSet.add @toUser #there is not diff btw who said no first ?? shu we handle this case too later?
           @presUserNoMatchData=@presUserNoMatchDataSet.to_a.join(',')
           puts 'presUserNoMatchData'+ @presUserNoMatchData
@@ -63,7 +66,7 @@ class MatchController < ApplicationController
       elsif(@secUserLiked.include? @fromUser) #Already Yes from secUser
         #remove
         #
-        @presUserPrfctMatchDataSet=@presUserData["completematch"].split(',').to_set
+
         @presUserPrfctMatchDataSet=@presUserPrfctMatchDataSet.add @toUser
         @presUserPrfctMatchData=@presUserPrfctMatchDataSet.to_a.join(',')
         puts 'presUserPrfctMatchData'+ @presUserPrfctMatchData
@@ -77,7 +80,7 @@ class MatchController < ApplicationController
 
       else
 
-        @presUserSentSet=@presUserData["sent"].split(',').to_set
+
         @presUserSentSet=@presUserSentSet.add @toUser
         @presUserSent=@presUserSentSet.to_a.join(',')
         UserUserMapping.where( primeUserID: @fromUser ).update_all( sent: @presUserSent )
@@ -91,10 +94,9 @@ class MatchController < ApplicationController
     elsif(@response == 'N')
       #they both are mismatch !
       #updating the present user no match
-      @primUserNoMatchDataSet= @presUserData["nomatch"].split(',').to_set
-      @primUserNoMatchDataSet= @primUserNoMatchDataSet.add @toUser
-      @primUserNoMatchData=@primUserNoMatchDataSet.to_a.join(',')
-      UserUserMapping.where( primeUserID: @fromUser ).update_all(nomatch: @primUserNoMatchData)
+      @presUserNoMatchDataSet= @presUserNoMatchDataSet.add @toUser
+      @presUserNoMatchData=@presUserNoMatchDataSet.to_a.join(',')
+      UserUserMapping.where( primeUserID: @fromUser ).update_all(nomatch: @presUserNoMatchData)
 
       #updating the secondary user no match
       @secUserNoMatchDataSet= (@secUserData["nomatch"]).split(',').to_set
@@ -111,31 +113,33 @@ class MatchController < ApplicationController
           UserUserMapping.where( primeUserID: @toUser).update_all(sent: @secUserLikedData)
 
 
-          @primUserBeingLikedSet=@presUserData["received"].split(',').to_set
-          @primUserBeingLikedSet.delete(@toUser)
-          @primUserBeingLiked=@primUserBeingLikedSet.to_a.join(',')
-          UserUserMapping.where( primeUserID: @fromUser).update_all(received: @primUserBeingLiked)
+
+          @presUserBeingLikedSet.delete(@toUser)
+          @presUserBeingLiked=@presUserBeingLikedSet.to_a.join(',')
+          UserUserMapping.where( primeUserID: @fromUser).update_all(received: @presUserBeingLiked)
 
       end
     #user-user mapping
     else
      puts 'Some Issue'
     end
-    @userInterestMapping = UserInterestMapping.where(interestID: @interestID).where.not(userID: @fromUser).order("RANDOM()")
+    @stop = true
     @user = []
-    if @userInterestMapping != nil
-      @uumap = UserUserMapping.find_by_primeUserID(@fromUser)
-      @sentList = @uumap["sent"].split(',')
-      @completematchList = @uumap["completematch"].split(',')
-      @nomatchList = @uumap["nomatch"].split(',')
-      @userInterestMapping.each do |map|
-        unless @sentList.include?(map.userID) || @nomatchList.include?(map.userID) || @completematchList.include?(map.userID) || @existedID.include?(map.userID)
-          @user << User.find(map.userID)
-        end
-        break if @user.length == 1
+    @map1 = []
+    while @stop do
+      UserInterestMapping.uncached do
+        @userInterestMapping = UserInterestMapping.where(interestID: @interestID).where.not(userID: @fromUser).order("RANDOM()").first
       end
+      puts @userInterestMapping.inspect
+      if @userInterestMapping == nil
+        @stop = false
+      end
+      @map1 = @userInterestMapping
+      unless @presUserSentSet.include?(@map1.userID) || @presUserNoMatchDataSet.include?(@map1.userID) || @presUserPrfctMatchDataSet.include?(@map1.userID) || @existedID.include?(@map1.userID)
+        @user << User.find(@map1.userID)
+      end     
+      break if @user.length != 0
     end
-
     if @user != []
       if @user[0].avatar?
         @user << @user[0].avatar.url(:medium)
