@@ -96,7 +96,7 @@ class MatchController < ApplicationController
       #updating the present user no match
       @presUserNoMatchDataSet= @presUserNoMatchDataSet.add @toUser
       @presUserNoMatchData=@presUserNoMatchDataSet.to_a.join(',')
-      UserUserMapping.where( primeUserID: @fromUser ).update_all(nomatch: @primUserNoMatchData)
+      UserUserMapping.where( primeUserID: @fromUser ).update_all(nomatch: @presUserNoMatchData)
 
       #updating the secondary user no match
       @secUserNoMatchDataSet= (@secUserData["nomatch"]).split(',').to_set
@@ -116,7 +116,7 @@ class MatchController < ApplicationController
 
           @presUserBeingLikedSet.delete(@toUser)
           @presUserBeingLiked=@presUserBeingLikedSet.to_a.join(',')
-          UserUserMapping.where( primeUserID: @fromUser).update_all(received: @primUserBeingLiked)
+          UserUserMapping.where( primeUserID: @fromUser).update_all(received: @presUserBeingLiked)
 
       end
     #user-user mapping
