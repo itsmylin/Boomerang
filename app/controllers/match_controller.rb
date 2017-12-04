@@ -130,10 +130,7 @@ class MatchController < ApplicationController
       UserInterestMapping.uncached do
         @userInterestMapping = UserInterestMapping.where(interestID: @interestID).where.not(userID: @fromUser).order("RANDOM()").first
       end
-      puts @userInterestMapping.inspect
-      if @userInterestMapping == nil
-        @stop = false
-      end
+      break if @userInterestMapping == nil
       @map1 = @userInterestMapping
       unless @presUserSentSet.include?(@map1.userID) || @presUserNoMatchDataSet.include?(@map1.userID) || @presUserPrfctMatchDataSet.include?(@map1.userID) || @existedID.include?(@map1.userID)
         @user << User.find(@map1.userID)
