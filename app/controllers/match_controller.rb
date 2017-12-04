@@ -123,15 +123,22 @@ class MatchController < ApplicationController
     else
      puts 'Some Issue'
     end
-    @userInterestMapping = UserInterestMapping.where(interestID: @interestID).where.not(userID: @fromUser).order("RANDOM()").limit(1)
+    @stop = true
     @user = []
-    while @user.length == 0 do
-      break if @userInterestMapping == nil
-      map = @userInterestMapping[0]
-      unless @presUserSentSet.include?(map.userID) || @presUserNoMatchDataSet.include?(map.userID) || @presUserPrfctMatchDataSet.include?(map.userID) || @existedID.include?(map.userID)
-        @user << User.find(map.userID)
+    @map1 = []
+    while @stop do
+      UserInterestMapping.uncached do
+        @userInterestMapping = UserInterestMapping.where(interestID: @interestID).where.not(userID: @fromUser).order("RANDOM()").first
       end
-      @userInterestMapping = UserInterestMapping.where(interestID: @interestID).where.not(userID: @fromUser).order("RANDOM()").limit(1)
+      puts @userInterestMapping.inspect
+      if @userInterestMapping == nil
+        @stop = false
+      end
+      @map1 = @userInterestMapping
+      unless @presUserSentSet.include?(@map1.userID) || @presUserNoMatchDataSet.include?(@map1.userID) || @presUserPrfctMatchDataSet.include?(@map1.userID) || @existedID.include?(@map1.userID)
+        @user << User.find(@map1.userID)
+      end     
+      break if @user.length != 0
     end
     if @user != []
       if @user[0].avatar?
